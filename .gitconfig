@@ -1,0 +1,23 @@
+[user]
+    name = ratazzi
+    email = ratazzi.potts@gmail.com
+
+[github]
+    user = ratazzi
+
+[core]
+    editor = vim
+    quotepath = false
+
+[color]
+    ui = true
+    status = true
+    branch = true
+    diff = true
+
+[merge]
+    tool = vimdiff
+
+[i18n]
+    commitencoding = utf-8
+    logoutencoding = utf-8
