@@ -21,3 +21,6 @@
 [i18n]
     commitencoding = utf-8
     logoutencoding = utf-8
+
+[alias]
+    st = status
