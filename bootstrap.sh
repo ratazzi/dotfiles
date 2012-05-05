@@ -14,12 +14,14 @@ fi
 # vim
 ln -s "`pwd`/.vim" "$HOME/.vim"
 ln -s "`pwd`/.vimrc" "$HOME/.vimrc"
+ln -s "`pwd`/.vimrc" "$HOME/.gvimrc"
 vim +BundleInstall +qall
 
 # zsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
-    git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+    git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.dotfiles/.oh-my-zsh
 fi
+ln -s "`pwd`/.oh-my-zsh" "$HOME/.oh-my-zsh"
 ln -s "`pwd`/.zshrc" "$HOME/.zshrc"
 
 # tmux
@@ -31,6 +33,5 @@ ln -s "`pwd`/.gitconfig" "$HOME/.gitconfig"
 # python
 ln -s "`pwd`/.pystartup.py" "$HOME/.pystartup.py"
 
-echo
-echo "\033[01;32mLet's rock.\033[00m"
+echo -e "\n\033[01;32mLet's rock.\033[00m\n"
 exit 0
