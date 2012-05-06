@@ -34,11 +34,13 @@ Bundle 'xolox/vim-session'
 set sessionoptions+=resize,winpos
 let g:session_directory = expand('~/.tmp/sessions')
 let g:session_autosave = 'yes'
+
+" Command-T
+Bundle 'wincent/Command-T'
+let g:CommandTMaxHeight=15
 " }}}
 
 " shortcut
-map <F5> :NERDTreeToggle<CR>
-map <F6> :TlistToggle<CR>
 map <Space>m <C-W>_
 " map <Space>g 2<C-]>
 map <Space>g :CommandT<CR>
@@ -71,10 +73,11 @@ set fileencodings=utf-8,gb2312,gbk,gb18030,cp936
 set fileencoding=utf-8
 set enc=utf-8
 set fileformat=unix
-set dictionary+=$HOME/.vim/words
+set dictionary+=/usr/share/dict/words
 " swapfile dirs
 set dir=$HOME/.tmp//,$HOME/tmp//
-set wildignore+=*.pyc,*.pyo,.DS_Store,*.swp,.git,.svn
+set wildignore+=.DS_Store,*.sw?,.git,.svn,.hg
+set wildignore+=*.pyc,*.egg,*.egg-info
 set tags+=$HOME/.tmp/tags
 "set transparency=12
 syntax on
@@ -92,9 +95,6 @@ runtime ftplugin/man.vim
 
 " NERDTree
 let NERDTreeIgnore=['pyc']
-
-" Command-T
-let g:CommandTMaxHeight=15
 
 " hide toolbar, menu {{{
 if has("gui")
