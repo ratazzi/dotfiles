@@ -38,6 +38,9 @@ let g:session_autosave = 'yes'
 " Command-T
 Bundle 'wincent/Command-T'
 let g:CommandTMaxHeight=15
+
+" syntastic
+Bundle 'scrooloose/syntastic'
 " }}}
 
 " shortcut
