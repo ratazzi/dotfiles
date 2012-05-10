@@ -3,7 +3,7 @@
 # bootstrap environment without Dropbox
 
 if [ ! -d "$HOME/.dotfiles" ]; then
-    git clone git@github.com:ratazzi/dotfiles.git ~/.dotfiles
+    git clone git://github.com/ratazzi/dotfiles.git ~/.dotfiles
     cd ~/.dotfiles
 fi
 
