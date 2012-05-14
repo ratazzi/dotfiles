@@ -2,6 +2,9 @@
 
 # bootstrap environment without Dropbox
 
+[[ ! -x `which zsh` ]] && echo -e "\033[01;31mzsh not found.\033[00m\n" && exit 1
+[[ ! -x `which vim` ]] && echo -e "\033[01;31mvim not found.\033[00m\n" && exit 1
+
 if [ ! -d "$HOME/.dotfiles" ]; then
     git clone git://github.com/ratazzi/dotfiles.git ~/.dotfiles
     cd ~/.dotfiles
