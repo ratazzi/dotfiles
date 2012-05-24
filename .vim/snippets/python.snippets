@@ -85,3 +85,32 @@ snippet ifmain
 # __magic__
 snippet _
 	__${1:init}__${2}
+
+snippet setup
+	#!/usr/bin/env python
+	# coding=utf-8
+
+	from setuptools import setup, find_packages
+
+	setup(
+		name='${1:name}',
+		version='${2}',
+		author='ratazzi',
+		author_email='ratazzi.potts@gmail.com',
+		url='${3}',
+		packages=find_packages(),
+		description='${4:descrption}',
+		entry_points={
+			'console_scripts': [
+				'${5:cmd}=${6:name.app:main}',
+			],
+		},
+		install_requires=[
+			'${7}',
+		],
+		data_files=[
+			('${8}', [${9}'])
+			],
+		${10:include_package_data=True,}
+		${11:license='BSD License',}
+	)
