@@ -40,7 +40,12 @@ Bundle 'wincent/Command-T'
 let g:CommandTMaxHeight=15
 
 " syntastic
-Bundle 'scrooloose/syntastic'
+" Bundle 'scrooloose/syntastic'
+
+Bundle 'klen/python-mode'
+let g:pymode_folding = 0
+let g:pymode_motion = 0
+let g:pymode_lint_ignore = "E302"
 " }}}
 
 " shortcut
