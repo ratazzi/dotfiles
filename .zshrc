@@ -47,6 +47,7 @@ if [[ "$OS" == 'Darwin' ]]; then
     LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
     PATH="$PATH:/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin"
     export LANG='en_US.UTF-8'
+    alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 fi
 
 # Linux
