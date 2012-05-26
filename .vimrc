@@ -56,6 +56,14 @@ map <Space>b :CommandTBuffer<CR>
 map <Space>t :TlistToggle<CR>
 map <Space>f :NERDTreeToggle<CR>
 
+" vimux
+map <Leader>r :PromptVimTmuxCommand<CR>
+map <Leader>rl :PromptVimTmuxCommand<CR>
+map <Leader>ri :InspectVimTmuxRunner<CR>
+map <Leader>rq :CloseVimTmuxRunner<CR>
+map <Leader>rx :CloseVimTmuxPanes<CR>
+let VimuxHeight = "20"
+
 " indent and tabstop
 set autoindent shiftwidth=4
 set cindent shiftwidth=4
