@@ -55,13 +55,15 @@ map <Space>g :CommandT<CR>
 map <Space>b :CommandTBuffer<CR>
 map <Space>t :TlistToggle<CR>
 map <Space>f :NERDTreeToggle<CR>
+map <Space>r :PromptVimTmuxCommand<CR>
 
 " vimux
-map <Leader>r :PromptVimTmuxCommand<CR>
+map <Leader>rp :PromptVimTmuxCommand<CR>
 map <Leader>rl :PromptVimTmuxCommand<CR>
 map <Leader>ri :InspectVimTmuxRunner<CR>
 map <Leader>rq :CloseVimTmuxRunner<CR>
 map <Leader>rx :CloseVimTmuxPanes<CR>
+let VimuxUseNearestPane = 1
 let VimuxHeight = "20"
 
 " indent and tabstop
