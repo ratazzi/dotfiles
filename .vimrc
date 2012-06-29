@@ -45,7 +45,7 @@ let g:CommandTMaxHeight=15
 Bundle 'klen/python-mode'
 let g:pymode_folding = 0
 let g:pymode_motion = 0
-let g:pymode_lint_ignore = "E302,W901"
+let g:pymode_lint_ignore = "E302,E501,W901"
 
 " vim-javascript
 Bundle "lepture/vim-javascript"
