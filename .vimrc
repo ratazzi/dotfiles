@@ -110,11 +110,6 @@ filetype on
 filetype plugin on
 filetype plugin indent on
 
-" vimrc local
-if filereadable(expand('~/.vimrc.local'))
-    source ~/.vimrc.local
-endif
-
 " man
 runtime ftplugin/man.vim
 
@@ -246,5 +241,11 @@ noremap <C-S> :update<CR>
 vnoremap <C-S> <C-C>:update<CR>
 inoremap <C-S> <C-C>:update<CR>
 " }}}
+
+" vimrc local
+if filereadable(expand('~/.vimrc.local'))
+    source ~/.vimrc.local
+endif
+
 
 " vim: fdm=marker
