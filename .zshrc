@@ -67,3 +67,4 @@ fi
 # rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+alias lx="$HOME/Dropbox/ratazzi/utils/xunlei-lixian/lixian_cli.py"
