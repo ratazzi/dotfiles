@@ -104,6 +104,9 @@ set wildignore+=.DS_Store,*.sw?,.git,.svn,.hg
 set wildignore+=*.pyc,*.egg,*.egg-info
 set tags+=$HOME/.tmp/tags
 set modelines=2
+set undofile
+set undodir=$HOME/.tmp/
+set undolevels=500
 "set transparency=12
 syntax on
 filetype on
