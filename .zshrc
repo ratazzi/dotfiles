@@ -35,6 +35,11 @@ unsetopt correct_all
 CLICOLOR=1
 OS=`uname -s`
 
+# Tweak zsh-syntax-highlighting
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root)
+ZSH_HIGHLIGHT_STYLES[path]='fg=cyan'
+ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
+
 # Macbook Pro battery percent
 function battery_charge {
     echo `~/.bin/battery.py` 2>/dev/null
