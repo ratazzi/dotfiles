@@ -52,6 +52,8 @@ Bundle "lepture/vim-javascript"
 let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
+
+Bundle "vim-scripts/iptables"
 " }}}
 
 " shortcut
@@ -105,7 +107,7 @@ set wildignore+=*.pyc,*.egg,*.egg-info
 set tags+=$HOME/.tmp/tags
 set modelines=2
 set undofile
-set undodir=$HOME/.tmp/
+set undodir=$HOME/.tmp/undo
 set undolevels=500
 "set transparency=12
 syntax on
