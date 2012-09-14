@@ -53,6 +53,8 @@ let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 
+Bundle "lepture/vim-jinja"
+
 Bundle "vim-scripts/iptables"
 " }}}
 
@@ -140,7 +142,7 @@ elseif has('win32')
     source $VIMRUNTIME/menu.vim
 else
     set guifont=Ubuntu\ Mono\ 13
-    set guifontwide=Microsoft\ YaHei\ 11
+    set guifontwide=WenQuanYi\ Micro\ Hei\ Mono\ 12
     if has('gui_running')
         set lines=35
         set columns=100
