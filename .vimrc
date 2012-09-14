@@ -48,7 +48,7 @@ let g:pymode_motion = 0
 let g:pymode_lint_ignore = "E302,E501,W901"
 
 " vim-javascript
-Bundle "lepture/vim-javascript"
+Bundle "pangloss/vim-javascript"
 let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
