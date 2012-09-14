@@ -26,7 +26,7 @@ CASE_SENSITIVE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git python osx zsh-syntax-highlighting)
+plugins=(git python)
 
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
@@ -34,11 +34,6 @@ unsetopt correct_all
 # Customize to your needs...
 CLICOLOR=1
 OS=`uname -s`
-
-# Tweak zsh-syntax-highlighting
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root)
-ZSH_HIGHLIGHT_STYLES[path]='fg=cyan'
-ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
 
 # Macbook Pro battery percent
 function battery_charge {
