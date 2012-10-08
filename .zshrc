@@ -26,7 +26,7 @@ CASE_SENSITIVE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git python osx zsh-syntax-highlighting)
+plugins=(git python)
 
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
@@ -36,9 +36,9 @@ CLICOLOR=1
 OS=`uname -s`
 
 # Tweak zsh-syntax-highlighting
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root)
-ZSH_HIGHLIGHT_STYLES[path]='fg=cyan'
-ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=white,bold,bg=red')
+# ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern root)
+# ZSH_HIGHLIGHT_STYLES[path]='none'
+# ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=red,bold')
 
 # Macbook Pro battery percent
 function battery_charge {
@@ -72,4 +72,6 @@ fi
 # rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
 alias lx="$HOME/Dropbox/ratazzi/utils/xunlei-lixian/lixian_cli.py"
+alias secret.gen="head -2 /dev/urandom | sha1sum | base64"

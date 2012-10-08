@@ -114,3 +114,40 @@ snippet setup
 		${10:include_package_data=True,}
 		${11:license='BSD License',}
 	)
+
+snippet tornado_app
+	class MainHandler(tornado.web.RequestHandler):
+		def get(self):
+			self.write("It's running.")
+
+	class Application(tornado.web.Application):
+		def __init__(self):
+			handlers = [
+				(r'/.*', MainHandler),
+			]
+		settings = dict(
+			template_path=os.path.abspath(os.path.join(os.path.dirname(__file__), 'templates')),
+			static_path=os.path.abspath(os.path.join(os.path.dirname(__file__), 'static'))
+			debug=True,
+		)
+		tornado.web.Application.__init__(self, handlers, **settings)
+
+	try:
+		server = tornado.httpserver.HTTPServer(Application())
+		server.listen(${1:port})
+		tornado.ioloop.IOLoop.instance().start()
+	except KeyboardInterrupt:
+		tornado.ioloop.IOLoop.instance().stop()
+		print 'exited.'
+
+snippet tornado_wsgi_container
+	try:
+		container = tornado.wsgi.WSGIContainer(application)
+		server = tornado.httpserver.HTTPServer(container)
+		server.listen(${1:port})
+		tornado.ioloop.IOLoop.instance().start()
+	except KeyboardInterrupt:
+		tornado.ioloop.IOLoop.instance().stop()
+		print 'exited.'
+
+# vim: set fdm=marker

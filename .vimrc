@@ -34,6 +34,7 @@ Bundle 'xolox/vim-session'
 set sessionoptions+=resize,winpos
 let g:session_directory = expand('~/.tmp/sessions')
 let g:session_autosave = 'yes'
+let g:session_autoload = 'yes'
 
 " Command-T
 Bundle 'wincent/Command-T'
@@ -54,6 +55,10 @@ let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 
 Bundle "vim-scripts/iptables"
+Bundle "groenewege/vim-less"
+Bundle "vim-scripts/applescript.vim"
+Bundle "vim-scripts/activity-log"
+let g:activity_log_location = '~/.tmp/activity/%Y.log'
 " }}}
 
 " shortcut
