@@ -150,4 +150,7 @@ snippet tornado_wsgi_container
 		tornado.ioloop.IOLoop.instance().stop()
 		print 'exited.'
 
+snippet 2to3
+	from __future__ import division, absolute_import, unicode_literals, print_function
+
 # vim: set fdm=marker

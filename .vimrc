@@ -13,9 +13,13 @@ Bundle 'gmarik/vundle'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'vim-scripts/tComment'
 Bundle 'tpope/vim-surround'
-Bundle 'kien/ctrlp.vim'
 Bundle 'vim-scripts/grep.vim'
 Bundle 'ahao/vimcdoc'
+
+" ctrlp.vim
+Bundle 'kien/ctrlp.vim'
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlPMixed'
 
 " Taglist
 Bundle 'vim-scripts/taglist.vim'
@@ -40,9 +44,6 @@ let g:session_autoload = 'yes'
 Bundle 'wincent/Command-T'
 let g:CommandTMaxHeight=15
 
-" syntastic
-" Bundle 'scrooloose/syntastic'
-
 Bundle 'klen/python-mode'
 let g:pymode_folding = 0
 let g:pymode_motion = 0
@@ -55,10 +56,16 @@ let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 
 Bundle "lepture/vim-jinja"
-
 Bundle "vim-scripts/iptables"
 Bundle "groenewege/vim-less"
 Bundle "vim-scripts/applescript.vim"
+Bundle "ratazzi/blackboard.vim"
+Bundle "zaiste/tmux.vim"
+Bundle "brandonbloom/vim-proto"
+Bundle "vim-scripts/matchit.zip"
+Bundle "samsonw/vim-task"
+Bundle "plasticboy/vim-markdown"
+
 Bundle "vim-scripts/activity-log"
 let g:activity_log_location = '~/.tmp/activity/%Y.log'
 " }}}
@@ -157,10 +164,10 @@ endif
 
 " colorscheme {{{
 if has('gui_running')
-    colorscheme ratazzi
+    colorscheme blackboard
 elseif &t_Co > 255 
     " xterm-256color
-    colorscheme terminal
+    colorscheme blackboard
 else
     " xterm-color
     colorscheme default
