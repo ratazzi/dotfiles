@@ -64,7 +64,7 @@ Bundle "zaiste/tmux.vim"
 Bundle "brandonbloom/vim-proto"
 Bundle "vim-scripts/matchit.zip"
 Bundle "samsonw/vim-task"
-Bundle "plasticboy/vim-markdown"
+Bundle "tpope/vim-markdown"
 
 Bundle "vim-scripts/activity-log"
 let g:activity_log_location = '~/.tmp/activity/%Y.log'
