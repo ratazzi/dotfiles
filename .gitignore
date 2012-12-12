@@ -4,8 +4,6 @@
 *.log
 .netrwhist
 .VimballRecord
-.vim/bundle
 .gnupg
 .ssh
-.oh-my-zsh
 *.bak

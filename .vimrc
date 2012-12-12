@@ -48,6 +48,7 @@ Bundle 'klen/python-mode'
 let g:pymode_folding = 0
 let g:pymode_motion = 0
 let g:pymode_lint_ignore = "E302,E501,W901"
+let g:pymode_rope = 0
 
 " vim-javascript
 Bundle "pangloss/vim-javascript"
@@ -62,9 +63,12 @@ Bundle "vim-scripts/applescript.vim"
 Bundle "ratazzi/blackboard.vim"
 Bundle "zaiste/tmux.vim"
 Bundle "brandonbloom/vim-proto"
-Bundle "vim-scripts/matchit.zip"
-Bundle "samsonw/vim-task"
+Bundle "tsaleh/vim-matchit"
 Bundle "tpope/vim-markdown"
+Bundle "samsonw/vim-task"
+
+" Rails
+Bundle "tpope/vim-rails"
 
 Bundle "vim-scripts/activity-log"
 let g:activity_log_location = '~/.tmp/activity/%Y.log'

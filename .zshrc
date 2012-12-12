@@ -26,7 +26,7 @@ CASE_SENSITIVE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git python)
+plugins=(git python osx pip brew rails)
 
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
@@ -52,6 +52,7 @@ if [[ "$OS" == 'Darwin' ]]; then
     LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
     PATH="$PATH:/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin"
     export LANG='en_US.UTF-8'
+    export BYOBU_PREFIX=$(brew --prefix)
     alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 fi
 
@@ -72,6 +73,9 @@ fi
 # rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+# ServicesBox
+[[ -s "$HOME/Documents/ServicesBox/activate" ]] && . "$HOME/Documents/ServicesBox/activate"
 
 alias lx="$HOME/Dropbox/ratazzi/utils/xunlei-lixian/lixian_cli.py"
 alias secret.gen="head -2 /dev/urandom | sha1sum | base64"

@@ -10,11 +10,7 @@ DOTFILES="$HOME/.dotfiles"
 
 if [ ! -d "$DOTFILES" ]; then
     git clone git://github.com/ratazzi/dotfiles.git $DOTFILES
-fi
-
-# zsh
-if [ ! -d "$DOTFILES/.oh-my-zsh" ]; then
-    git clone git://github.com/robbyrussell/oh-my-zsh.git "$DOTFILES/.oh-my-zsh"
+    cd $DOTFILES && git submodule init && git submodule update
 fi
 
 ln -s "$DOTFILES/.oh-my-zsh" "$HOME/.oh-my-zsh"
@@ -22,6 +18,7 @@ ln -s "$DOTFILES/.zshrc" "$HOME/.zshrc"
 
 # tmux
 ln -s "$DOTFILES/.tmux.conf" "$HOME/.tmux.conf"
+ln -s "$DOTFILES/.byoburc.tmux" "$HOME/.byoburc.tmux"
 
 # git
 ln -s "$DOTFILES/.gitconfig" "$HOME/.gitconfig"
@@ -29,9 +26,9 @@ ln -s "$DOTFILES/.gitconfig" "$HOME/.gitconfig"
 # python
 ln -s "$DOTFILES/.pystartup.py" "$HOME/.pystartup.py"
 
-if [ ! -d "$DOTFILES/.vim/bundle/vundle" ]; then
-    git clone git://github.com/gmarik/vundle.git .vim/bundle/vundle
-fi
+# if [ ! -d "$DOTFILES/.vim/bundle/vundle" ]; then
+#     git clone git://github.com/gmarik/vundle.git .vim/bundle/vundle
+# fi
 
 # vim
 ln -s "$DOTFILES/.vim" "$HOME/.vim"
