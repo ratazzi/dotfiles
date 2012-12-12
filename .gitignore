@@ -7,3 +7,4 @@
 .gnupg
 .ssh
 *.bak
+.zsh-update
