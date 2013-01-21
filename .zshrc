@@ -26,7 +26,7 @@ CASE_SENSITIVE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git python osx pip brew rails)
+plugins=(git python osx pip brew rails vagrant supervisor redis-cli terminalapp)
 
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all

@@ -197,6 +197,7 @@ au BufNewFile,BufRead *.yaml.sample,*.yml.sample :set ft=yaml
 au BufNewFile,BufRead *.yaml,*.yaml.sample,*.yml,*.yml.sample :setlocal shiftwidth=2 tabstop=2
 au BufNewFile,BufRead *.md,*.mkd,*.markdown set ai formatoptions=tcronqn2 comments=n:>
 au BufRead,BufNewFile *.css set ft=css syntax=css3 
+au BufNewFile,BufRead *.rb set shiftwidth=2 tabstop=2
 
 " Automating read-only access to existing files
 autocmd SwapExists * let v:swapchoice = 'o'
