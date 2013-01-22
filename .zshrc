@@ -34,6 +34,7 @@ unsetopt correct_all
 # Customize to your needs...
 CLICOLOR=1
 OS=`uname -s`
+export GIT_PROXY_COMMAND="$HOME/.dotfiles/socks5proxywrapper"
 
 # Tweak zsh-syntax-highlighting
 # ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern root)
