@@ -34,7 +34,8 @@ unsetopt correct_all
 # Customize to your needs...
 CLICOLOR=1
 OS=`uname -s`
-export GIT_PROXY_COMMAND="$HOME/.dotfiles/socks5proxywrapper"
+# export GIT_PROXY_COMMAND="$HOME/.dotfiles/socks5proxywrapper"
+export EDITOR=`which vim`
 
 # Tweak zsh-syntax-highlighting
 # ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern root)
@@ -51,10 +52,9 @@ if [[ "$OS" == 'Darwin' ]]; then
     #RPROMPT='$(battery_charge)'
     #LSCOLORS=exfxcxdxbxegedabagacad
     LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
-    PATH="$PATH:/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin"
+    PATH="$PATH:/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:/usr/local/sbin"
     export LANG='en_US.UTF-8'
     export BYOBU_PREFIX=$(brew --prefix)
-    alias vim='/Applications/MacVim.app/Contents/MacOS/Vim'
 fi
 
 # Linux
