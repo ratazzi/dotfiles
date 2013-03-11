@@ -66,12 +66,14 @@ Bundle "brandonbloom/vim-proto"
 Bundle "tsaleh/vim-matchit"
 Bundle "tpope/vim-markdown"
 Bundle "samsonw/vim-task"
+Bundle "mileszs/ack.vim"
+Bundle "Yggdroot/indentLine"
 
 " Rails
 Bundle "tpope/vim-rails"
 
-Bundle "vim-scripts/activity-log"
-let g:activity_log_location = '~/.tmp/activity/%Y.log'
+" Bundle "vim-scripts/activity-log"
+" let g:activity_log_location = '~/.tmp/activity/%Y.log'
 " }}}
 
 " shortcut

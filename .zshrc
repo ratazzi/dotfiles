@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="robbyrussell"
+# ZSH_THEME="robbyrussell"
 ZSH_THEME="gentoo"
 # ZSH_THEME="prose"
 
@@ -26,7 +26,7 @@ CASE_SENSITIVE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git python osx pip brew rails vagrant supervisor redis-cli terminalapp)
+plugins=(git python osx pip brew rails vagrant supervisor redis-cli history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
@@ -34,6 +34,7 @@ unsetopt correct_all
 # Customize to your needs...
 CLICOLOR=1
 OS=`uname -s`
+MODE_INDICATOR="%{$fg_bold[red]%}<%{$fg[red]%}<<%{$reset_color%}"
 # export GIT_PROXY_COMMAND="$HOME/.dotfiles/socks5proxywrapper"
 export EDITOR=`which vim`
 
