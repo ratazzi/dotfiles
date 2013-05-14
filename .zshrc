@@ -5,8 +5,8 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-# ZSH_THEME="robbyrussell"
-ZSH_THEME="gentoo"
+ZSH_THEME="robbyrussell"
+# ZSH_THEME="gentoo"
 # ZSH_THEME="prose"
 
 # Set to this to use case-sensitive completion
@@ -61,6 +61,8 @@ fi
 # Linux
 if [[ "$OS" == 'Linux' ]]; then
     TERM=xterm-256color
+    bindkey '^[OA' history-search-backward
+    bindkey '^[OB' history-search-forward
     alias pbcopy='xclip -selection clipboard'
     alias pbpaste='xclip -selection clipboard -o'
 fi
