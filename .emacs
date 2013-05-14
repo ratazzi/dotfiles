@@ -6,13 +6,14 @@
 (set-default-font "-unknown-Ubuntu Mono-normal-normal-normal-*-17-*-*-*-m-0-iso10646-1")
 (require 'linum)
 (global-linum-mode t)
+(setq linum-format "%4d ")
 (setq auto-save-default nil)
 (setq x-select-enable-clipboard t)
 
 (require 'color-theme)
 (color-theme-initialize)
 (load-file "~/.emacs.d/themes/blackboard-theme.el")
-(color-theme-blackboard)
+; (color-theme-blackboard)
  
 (setq-default tab-width 4)
 (setq tab-stop-list (mapcar (lambda (x) (* x tab-width))

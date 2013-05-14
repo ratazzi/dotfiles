@@ -67,7 +67,6 @@ Bundle "tsaleh/vim-matchit"
 Bundle "tpope/vim-markdown"
 Bundle "samsonw/vim-task"
 Bundle "mileszs/ack.vim"
-Bundle "Yggdroot/indentLine"
 
 " Rails
 Bundle "tpope/vim-rails"
@@ -170,10 +169,10 @@ endif
 
 " colorscheme {{{
 if has('gui_running')
-    colorscheme blackboard
+    silent! colorscheme blackboard
 elseif &t_Co > 255 
     " xterm-256color
-    colorscheme blackboard
+    silent! colorscheme blackboard
 else
     " xterm-color
     colorscheme default
@@ -190,9 +189,9 @@ endif
 
 " autocmd {{{
 " tab to space
-au BufWrite *.php,*.py,*.yaml,*.html,*.css :%retab
+" au BufWrite *.php,*.py,*.yaml,*.html,*.css :%retab
 " to unix
-au BufWrite *.* :set fileformat=unix
+" au BufWrite *.* :set fileformat=unix
 
 au BufNewFile,BufRead *.pac set syntax=pac
 au BufNewFile,BufRead *.yaml.sample,*.yml.sample :set ft=yaml

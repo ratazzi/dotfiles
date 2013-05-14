@@ -38,7 +38,7 @@ function s:GitLog(gitdir)
     if strlen(a:gitdir) > 1
         let s:cwd = a:gitdir
     endif
-    let s:cmd = 'cd '.s:cwd.' && git log -10'
+    let s:cmd = 'cd '.s:cwd.' && git log -200'
     let s:diffbuf = tempname()
     exec 'edit '.s:diffbuf
     set filetype=git

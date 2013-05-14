@@ -1,0 +1,60 @@
+URxvt.preeditType:Root
+! Input method
+URxvt.inputMethod:ibus
+
+URxvt.depth:32
+
+URxvt.urlLauncher:firefox
+URxvt.matcher.button:1
+Urxvt.perl-ext-common:matcher
+
+URxvt.scrollBar:True
+URxvt.scrollBar_right:True
+URxvt.scrollBar_floating:False
+URxvt.scrollstyle:plain
+
+URxvt.mouseWheelScrollPage:True
+URxvt.scrollTtyOutput:False
+URxvt.scrollWithBuffer:True
+URxvt.scrollTtyKeypress:True
+
+URxvt.cursorBlink:True
+URxvt.saveLines:3000
+
+URxvt.borderLess:False
+
+! Fonts
+Xft.dpi:96
+Xft.autohint:  0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintfull
+Xft.hinting:   1
+Xft.antialias: 1
+Xft.dpi:       96
+Xft.rgba:      rgb
+urxvt.letterSpace: -1
+URxvt.font:xft:Ubuntu Mono:size=13:antialias=true
+URxvt.boldfont:xft:WenQuanYi Micro Hei Mono:size=12:style=Regular:antialias=true
+
+! Plugins
+urxvt.perl-ext-common : matcher,clipboard
+
+! Color theme
+URxvt.background: #131313
+URxvt.foreground: #F2F2F2
+URxvt.color0: #2E3436
+URxvt.color8: #555753
+URxvt.color1: #CC0000
+URxvt.color9: #EF2929
+URxvt.color2: #4E9A06
+URxvt.color10: #8AE234
+URxvt.color3: #C4A000
+URxvt.color11: #FCE94F
+URxvt.color4: #3465A4
+URxvt.color12: #729FCF
+URxvt.color5: #75507B
+URxvt.color13: #AD7FA8
+URxvt.color6: #06989A
+URxvt.color14: #34E2E2
+URxvt.color7: #D3D7CF
+URxvt.color15: #EEEEEC
