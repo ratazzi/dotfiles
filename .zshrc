@@ -56,6 +56,7 @@ if [[ "$OS" == 'Darwin' ]]; then
     PATH="$PATH:/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:/usr/local/sbin"
     export LANG='en_US.UTF-8'
     export BYOBU_PREFIX=$(brew --prefix)
+    alias supervisorctl="supervisorctl -c $HOME/.supervisor/supervisord.conf"
 fi
 
 # Linux
@@ -68,8 +69,9 @@ if [[ "$OS" == 'Linux' ]]; then
 fi
 
 # python
-[[ -s "$HOME/.runtime/bin" ]] && . "$HOME/.runtime/bin/activate"
 [[ -s "$HOME/.pystartup.py" ]] && PYTHONSTARTUP=$HOME/.pystartup.py
+[[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && . "$HOME/.pythonbrew/etc/bashrc"
+[[ -s "$HOME/.runtime/bin" ]] && . "$HOME/.runtime/bin/activate"
 
 # utils
 [[ -s "$HOME/.bin" ]] && PATH="$HOME/.bin:$PATH"

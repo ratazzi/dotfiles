@@ -34,11 +34,11 @@ Bundle 'msanders/snipmate.vim'
 let g:snippets_dir = "$HOME/.vim/snippets"
 
 " vim-session
-Bundle 'xolox/vim-session'
-set sessionoptions+=resize,winpos
-let g:session_directory = expand('~/.tmp/sessions')
-let g:session_autosave = 'yes'
-let g:session_autoload = 'yes'
+" Bundle 'xolox/vim-session'
+" set sessionoptions+=resize,winpos
+" let g:session_directory = expand('~/.tmp/sessions')
+" let g:session_autosave = 'yes'
+" let g:session_autoload = 'yes'
 
 " Command-T
 Bundle 'wincent/Command-T'
@@ -70,6 +70,8 @@ Bundle "mileszs/ack.vim"
 
 " Rails
 Bundle "tpope/vim-rails"
+
+Bundle "Lokaltog/vim-powerline"
 
 " Bundle "vim-scripts/activity-log"
 " let g:activity_log_location = '~/.tmp/activity/%Y.log'
@@ -230,11 +232,11 @@ nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 
 " status line {{{
 set laststatus=2
-set statusline=%1*[%n]\ %2*%f\ %3*%y\ [%{&fenc}]\ [%{&ff}]\ %=%4*line:%2*%l,%c\ \ \ %1*%P
-hi User1 guifg=#b2e974 guibg=black gui=bold ctermfg=149 cterm=bold
-hi User2 guifg=#60a3f6 guibg=black gui=bold ctermfg=75 cterm=bold
-hi User3 guifg=#e8cc8f guibg=black gui=bold ctermfg=222 cterm=bold
-hi User4 guifg=gray guibg=black gui=bold ctermfg=gray cterm=bold
+" set statusline=%1*[%n]\ %2*%f\ %3*%y\ [%{&fenc}]\ [%{&ff}]\ %=%4*line:%2*%l,%c\ \ \ %1*%P
+" hi User1 guifg=#b2e974 guibg=black gui=bold ctermfg=149 cterm=bold
+" hi User2 guifg=#60a3f6 guibg=black gui=bold ctermfg=75 cterm=bold
+" hi User3 guifg=#e8cc8f guibg=black gui=bold ctermfg=222 cterm=bold
+" hi User4 guifg=gray guibg=black gui=bold ctermfg=gray cterm=bold
 " }}}
 
 " keyboard, mouse in Linux, Win {{{
