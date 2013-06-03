@@ -1,3 +1,4 @@
+URxvt.termName: xterm-256color
 URxvt.preeditType:Root
 ! Input method
 URxvt.inputMethod:ibus
