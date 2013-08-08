@@ -67,6 +67,7 @@ Bundle "tsaleh/vim-matchit"
 Bundle "tpope/vim-markdown"
 Bundle "samsonw/vim-task"
 Bundle "mileszs/ack.vim"
+Bundle "rodjek/vim-puppet"
 
 " Rails
 Bundle "tpope/vim-rails"
@@ -125,7 +126,7 @@ set dictionary+=/usr/share/dict/words
 set dir=$HOME/.tmp//,$HOME/tmp//
 set wildignore+=.DS_Store,*.sw?,.git,.svn,.hg
 set wildignore+=*.pyc,*.egg,*.egg-info
-set tags+=$HOME/.tmp/tags
+set tags+=./tags,tags,$HOME/.tmp/tags
 set modelines=2
 set undofile
 set undodir=$HOME/.tmp/undo
@@ -171,7 +172,7 @@ endif
 
 " colorscheme {{{
 if has('gui_running')
-    silent! colorscheme blackboard
+    silent! colorscheme smyck
 elseif &t_Co > 255 
     " xterm-256color
     silent! colorscheme blackboard
@@ -201,6 +202,7 @@ au BufNewFile,BufRead *.yaml,*.yaml.sample,*.yml,*.yml.sample :setlocal shiftwid
 au BufNewFile,BufRead *.md,*.mkd,*.markdown set ai formatoptions=tcronqn2 comments=n:>
 au BufRead,BufNewFile *.css set ft=css syntax=css3 
 au BufNewFile,BufRead *.rb set shiftwidth=2 tabstop=2
+au BufReadCmd *.ipa,*.zip call zip#Browse(expand("<amatch>"))
 
 " Automating read-only access to existing files
 autocmd SwapExists * let v:swapchoice = 'o'

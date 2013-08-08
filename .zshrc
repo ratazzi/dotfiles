@@ -53,7 +53,7 @@ if [[ "$OS" == 'Darwin' ]]; then
     #RPROMPT='$(battery_charge)'
     #LSCOLORS=exfxcxdxbxegedabagacad
     LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
-    PATH="$PATH:/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:/usr/local/sbin"
+    export PATH="$PATH:/opt/local/bin:/opt/local/sbin:/usr/local/sbin"
     export LANG='en_US.UTF-8'
     export BYOBU_PREFIX=$(brew --prefix)
     alias supervisorctl="supervisorctl -c $HOME/.supervisor/supervisord.conf"
@@ -78,7 +78,6 @@ fi
 
 # rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # ServicesBox
 [[ -s "$HOME/Documents/ServicesBox/activate" ]] && . "$HOME/Documents/ServicesBox/activate"
