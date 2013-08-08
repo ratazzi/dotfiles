@@ -84,3 +84,4 @@ fi
 
 alias lx="$HOME/Dropbox/ratazzi/utils/xunlei-lixian/lixian_cli.py"
 alias secret.gen="head -2 /dev/urandom | sha1sum | base64"
+alias bm='byobu-tmux'
