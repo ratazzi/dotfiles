@@ -34,11 +34,12 @@ Bundle 'msanders/snipmate.vim'
 let g:snippets_dir = "$HOME/.vim/snippets"
 
 " vim-session
-" Bundle 'xolox/vim-session'
+Bundle 'xolox/vim-misc'
+Bundle 'xolox/vim-session'
 " set sessionoptions+=resize,winpos
-" let g:session_directory = expand('~/.tmp/sessions')
-" let g:session_autosave = 'yes'
-" let g:session_autoload = 'yes'
+let g:session_directory = expand('~/.tmp/sessions')
+let g:session_autosave = 'yes'
+let g:session_autoload = 'no'
 
 " Command-T
 Bundle 'wincent/Command-T'
@@ -56,7 +57,7 @@ let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 
-Bundle "lepture/vim-jinja"
+Bundle "mitsuhiko/vim-jinja"
 Bundle "vim-scripts/iptables"
 Bundle "groenewege/vim-less"
 Bundle "vim-scripts/applescript.vim"
@@ -68,9 +69,15 @@ Bundle "tpope/vim-markdown"
 Bundle "samsonw/vim-task"
 Bundle "mileszs/ack.vim"
 Bundle "rodjek/vim-puppet"
+Bundle "tshirtman/vim-cython"
+Bundle "vim-scripts/Conque-Shell"
 
 " Rails
 Bundle "tpope/vim-rails"
+
+" easy-align
+Bundle "junegunn/vim-easy-align"
+vnoremap <silent> <Enter> :EasyAlign<Enter>
 
 Bundle "Lokaltog/vim-powerline"
 
@@ -86,6 +93,7 @@ map <Space>b :CommandTBuffer<CR>
 map <Space>t :TlistToggle<CR>
 map <Space>f :NERDTreeToggle<CR>
 map <Space>r :PromptVimTmuxCommand<CR>
+inoremap jj <ESC>
 
 " vimux
 map <Leader>rp :PromptVimTmuxCommand<CR>
@@ -175,7 +183,7 @@ if has('gui_running')
     silent! colorscheme smyck
 elseif &t_Co > 255 
     " xterm-256color
-    silent! colorscheme blackboard
+    silent! colorscheme smyck
 else
     " xterm-color
     colorscheme default
@@ -202,7 +210,7 @@ au BufNewFile,BufRead *.yaml,*.yaml.sample,*.yml,*.yml.sample :setlocal shiftwid
 au BufNewFile,BufRead *.md,*.mkd,*.markdown set ai formatoptions=tcronqn2 comments=n:>
 au BufRead,BufNewFile *.css set ft=css syntax=css3 
 au BufNewFile,BufRead *.rb set shiftwidth=2 tabstop=2
-au BufReadCmd *.ipa,*.zip call zip#Browse(expand("<amatch>"))
+au BufReadCmd *.ipa,*.apk call zip#Browse(expand("<amatch>"))
 
 " Automating read-only access to existing files
 autocmd SwapExists * let v:swapchoice = 'o'
