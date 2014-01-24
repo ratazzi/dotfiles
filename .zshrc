@@ -145,10 +145,12 @@ fi
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 # ServicesBox
-[[ -s "$HOME/Documents/ServicesBox/activate" ]] && . "$HOME/Documents/ServicesBox/activate"
+# [[ -s "$HOME/Documents/ServicesBox/activate" ]] && . "$HOME/Documents/ServicesBox/activate"
 
 alias lx="$HOME/Dropbox/ratazzi/utils/xunlei-lixian/lixian_cli.py"
 alias secret.gen="head -2 /dev/urandom | sha1sum | base64"
 alias bm='byobu-tmux'
+
+[[ -d "/usr/local/mysql/bin" ]] && export PATH="/usr/local/mysql/bin:$PATH"
 
 # vim: set fdm=marker:

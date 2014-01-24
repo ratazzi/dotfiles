@@ -3,35 +3,40 @@
 
 " Vundle {{{
 set nocompatible
+" if has('vim_starting')
+"     set nocompatible
+"     set runtimepath+=~/.vim/bundle/neobundle.vim/
+" endif
 filetype off
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+" call neobundle#rc(expand('~/.vim/bundle/'))
+" Bundle 'Shougo/neobundle.vim'
+" Bundle 'Shougo/vimproc'
+
 " original repos on github
-Bundle 'gmarik/vundle'
+" Bundle 'gmarik/vundle'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'vim-scripts/tComment'
-Bundle 'tpope/vim-surround'
+" Bundle 'tpope/vim-surround'
 Bundle 'vim-scripts/grep.vim'
-Bundle 'ahao/vimcdoc'
+" Bundle 'ahao/vimcdoc'
 
 " ctrlp.vim
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlPMixed'
 
-" Taglist
-Bundle 'vim-scripts/taglist.vim'
-let Tlist_Show_One_File = 1
-let Tlist_Use_Right_Window = 1
-let tlist_php_settings = 'php;c:Classes;f:Functions;d:Constants;j:Javascript Functions'
-let Tlist_Exit_OnlyWindow = 1
-let Tlist_Auto_Open = 0
-
 " snipMate
-Bundle 'msanders/snipmate.vim'
-let g:snippets_dir = "$HOME/.vim/snippets"
+" Bundle 'msanders/snipmate.vim'
+" let g:snippets_dir = "$HOME/.vim/snippets"
+Bundle "SirVer/ultisnips"
+let g:UltiSnipsSnippetDirectories=["UltiSnips", expand('~/.vim/snippets/')]
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " vim-session
 Bundle 'xolox/vim-misc'
@@ -61,16 +66,14 @@ Bundle "mitsuhiko/vim-jinja"
 Bundle "vim-scripts/iptables"
 Bundle "groenewege/vim-less"
 Bundle "vim-scripts/applescript.vim"
-Bundle "ratazzi/blackboard.vim"
+" Bundle "ratazzi/blackboard.vim"
 Bundle "zaiste/tmux.vim"
 Bundle "brandonbloom/vim-proto"
 Bundle "tsaleh/vim-matchit"
 Bundle "tpope/vim-markdown"
-Bundle "samsonw/vim-task"
 Bundle "mileszs/ack.vim"
 Bundle "rodjek/vim-puppet"
 Bundle "tshirtman/vim-cython"
-Bundle "vim-scripts/Conque-Shell"
 
 " Rails
 Bundle "tpope/vim-rails"
@@ -80,20 +83,25 @@ Bundle "junegunn/vim-easy-align"
 vnoremap <silent> <Enter> :EasyAlign<Enter>
 
 Bundle "Lokaltog/vim-powerline"
+Bundle "junegunn/goyo.vim"
+Bundle "dag/vim-fish"
 
-" Bundle "vim-scripts/activity-log"
-" let g:activity_log_location = '~/.tmp/activity/%Y.log'
-" }}}
+" NeoBundleCheck
 
 " shortcut
 map <Space>m <C-W>_
 " map <Space>g 2<C-]>
 map <Space>g :CommandT<CR>
 map <Space>b :CommandTBuffer<CR>
-map <Space>t :TlistToggle<CR>
+map <Space>t :tj<CR>
 map <Space>f :NERDTreeToggle<CR>
 map <Space>r :PromptVimTmuxCommand<CR>
-inoremap jj <ESC>
+" inoremap jj <ESC>
+
+" paste
+nnoremap <F2> :set invpaste paste?<CR>
+imap <F2> <C-O>:set invpaste paste?<CR>
+set pastetoggle=<F2>
 
 " vimux
 map <Leader>rp :PromptVimTmuxCommand<CR>
@@ -139,11 +147,15 @@ set modelines=2
 set undofile
 set undodir=$HOME/.tmp/undo
 set undolevels=500
-"set transparency=12
 syntax on
 filetype on
 filetype plugin on
 filetype plugin indent on
+
+" set imd
+" au InsertEnter * set noimd
+" au InsertLeave * set imd
+" au FocusGained * set imd
 
 " man
 runtime ftplugin/man.vim
@@ -156,6 +168,7 @@ if has("gui")
     "set guioptions-=e
     "set guioptions-=m
     set guioptions-=T
+    set transparency=5
 endif
 " }}}
 
@@ -209,8 +222,9 @@ au BufNewFile,BufRead *.yaml.sample,*.yml.sample :set ft=yaml
 au BufNewFile,BufRead *.yaml,*.yaml.sample,*.yml,*.yml.sample :setlocal shiftwidth=2 tabstop=2
 au BufNewFile,BufRead *.md,*.mkd,*.markdown set ai formatoptions=tcronqn2 comments=n:>
 au BufRead,BufNewFile *.css set ft=css syntax=css3 
-au BufNewFile,BufRead *.rb set shiftwidth=2 tabstop=2
+au BufNewFile,BufRead *.rb,*.erb set shiftwidth=2 tabstop=2
 au BufReadCmd *.ipa,*.apk call zip#Browse(expand("<amatch>"))
+set title
 
 " Automating read-only access to existing files
 autocmd SwapExists * let v:swapchoice = 'o'
