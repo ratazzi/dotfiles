@@ -27,3 +27,9 @@
     st = status
     last = log -1 HEAD
     unstage = reset HEAD --
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = No
+[push]
+	default = matching
