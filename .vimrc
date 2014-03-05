@@ -10,6 +10,7 @@ set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/vundle/
+set shell=/bin/bash
 call vundle#rc()
 
 " call neobundle#rc(expand('~/.vim/bundle/'))
@@ -17,7 +18,7 @@ call vundle#rc()
 " Bundle 'Shougo/vimproc'
 
 " original repos on github
-" Bundle 'gmarik/vundle'
+Bundle 'gmarik/vundle'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'vim-scripts/tComment'
 " Bundle 'tpope/vim-surround'
@@ -158,7 +159,7 @@ filetype plugin indent on
 " au FocusGained * set imd
 
 " man
-runtime ftplugin/man.vim
+" runtime ftplugin/man.vim
 
 " NERDTree
 let NERDTreeIgnore=['pyc']
@@ -222,8 +223,8 @@ au BufNewFile,BufRead *.yaml.sample,*.yml.sample :set ft=yaml
 au BufNewFile,BufRead *.yaml,*.yaml.sample,*.yml,*.yml.sample :setlocal shiftwidth=2 tabstop=2
 au BufNewFile,BufRead *.md,*.mkd,*.markdown set ai formatoptions=tcronqn2 comments=n:>
 au BufRead,BufNewFile *.css set ft=css syntax=css3 
-au BufNewFile,BufRead *.rb,*.erb set shiftwidth=2 tabstop=2
-au BufReadCmd *.ipa,*.apk call zip#Browse(expand("<amatch>"))
+au BufNewFile,BufRead *.rb,*.erb,Rakefile,Podfile set shiftwidth=2 tabstop=2
+au BufReadCmd *.ipa,*.apk,*.fla call zip#Browse(expand("<amatch>"))
 set title
 
 " Automating read-only access to existing files

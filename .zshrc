@@ -30,6 +30,7 @@ plugins=(git python osx pip brew rails vagrant supervisor redis-cli history-subs
 
 source $ZSH/oh-my-zsh.sh
 unsetopt correct_all
+setopt NO_NOMATCH
 
 # Customize to your needs...
 CLICOLOR=1
@@ -154,3 +155,6 @@ alias bm='byobu-tmux'
 [[ -d "/usr/local/mysql/bin" ]] && export PATH="/usr/local/mysql/bin:$PATH"
 
 # vim: set fdm=marker:
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
