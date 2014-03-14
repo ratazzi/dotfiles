@@ -55,8 +55,8 @@ alias idevicesyslog='env DYLD_LIBRARY_PATH=/opt/libimobiledevice-macosx /opt/lib
 alias idevicescreenshot='env DYLD_LIBRARY_PATH=/opt/libimobiledevice-macosx /opt/libimobiledevice-macosx/idevicescreenshot'
 alias ideviceinfo='env DYLD_LIBRARY_PATH=/opt/libimobiledevice-macosx /opt/libimobiledevice-macosx/ideviceinfo'
 
-set -g -x NDK_ROOT "/opt/android-ndk-r8e"
-set -g -x PATH "/opt/adt-bundle-mac-x86_64-20131030/sdk/tools:/opt/adt-bundle-mac-x86_64-20131030/sdk/platform-tools:/opt/adt-bundle-mac-x86_64-20131030/sdk/build-tools/android-4.4:/opt/android-ndk-r8e" $PATH
+# set -g -x NDK_ROOT "/opt/android-ndk-r8e"
+# set -g -x PATH "/opt/adt-bundle-mac-x86_64-20131030/sdk/tools:/opt/adt-bundle-mac-x86_64-20131030/sdk/platform-tools:/opt/adt-bundle-mac-x86_64-20131030/sdk/build-tools/android-4.4:/opt/android-ndk-r8e" $PATH
 set -g -x PATH "/opt/bin" $PATH
 set -g -x PATH "$HOME/.bin" $PATH
 set -g -x LUAJIT '/usr/local/bin/luajit'
