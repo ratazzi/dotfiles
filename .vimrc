@@ -87,6 +87,11 @@ Bundle "Lokaltog/vim-powerline"
 Bundle "junegunn/goyo.vim"
 Bundle "dag/vim-fish"
 
+" vim-startify
+Bundle "mhinz/vim-startify"
+let g:startify_session_dir = expand('~/.tmp/sessions')
+let g:startify_list_order = ['sessions', 'files', 'dir', 'bookmarks']
+
 " NeoBundleCheck
 
 " shortcut
@@ -104,21 +109,14 @@ nnoremap <F2> :set invpaste paste?<CR>
 imap <F2> <C-O>:set invpaste paste?<CR>
 set pastetoggle=<F2>
 
-" vimux
-map <Leader>rp :PromptVimTmuxCommand<CR>
-map <Leader>rl :PromptVimTmuxCommand<CR>
-map <Leader>ri :InspectVimTmuxRunner<CR>
-map <Leader>rq :CloseVimTmuxRunner<CR>
-map <Leader>rx :CloseVimTmuxPanes<CR>
-let VimuxUseNearestPane = 1
-let VimuxHeight = "20"
-
 " indent and tabstop
 set autoindent shiftwidth=4
 set cindent shiftwidth=4
 set smartindent
 set tabstop=4
 set expandtab
+set smarttab
+set softtabstop=4
 
 " general options
 " set textwidth=110
@@ -145,13 +143,20 @@ set wildignore+=.DS_Store,*.sw?,.git,.svn,.hg
 set wildignore+=*.pyc,*.egg,*.egg-info
 set tags+=./tags,tags,$HOME/.tmp/tags
 set modelines=2
-set undofile
-set undodir=$HOME/.tmp/undo
-set undolevels=500
+" Display tabs and trailing spaces visually
+set list listchars=tab:\ \ ,trail:·
+
+if has('persistent_undo')
+    silent !mkdir ~/.vim/undo > /dev/null 2>&1
+    set undofile
+    set undodir=$HOME/.tmp/undo
+    set undolevels=500
+endif
+
 syntax on
 filetype on
 filetype plugin on
-filetype plugin indent on
+filetype indent on
 
 " set imd
 " au InsertEnter * set noimd
@@ -298,6 +303,5 @@ inoremap <C-S> <C-C>:update<CR>
 if filereadable(expand('~/.vimrc.local'))
     source ~/.vimrc.local
 endif
-
 
 " vim: fdm=marker

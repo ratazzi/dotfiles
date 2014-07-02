@@ -122,7 +122,7 @@ if [[ "$OS" == 'Darwin' ]]; then
     export PATH="$PATH:/opt/local/bin:/opt/local/sbin:/usr/local/sbin"
     export LANG='en_US.UTF-8'
     export BYOBU_PREFIX=$(brew --prefix)
-    alias supervisorctl="supervisorctl -c $HOME/.supervisord/supervisord.conf"
+    # alias supervisorctl="supervisorctl -c $HOME/.supervisord/supervisord.conf"
 fi
 
 # Linux
