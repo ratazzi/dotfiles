@@ -9,5 +9,5 @@
 *.bak
 .zsh-update
 .config/fish/fish_history
-.config/fish/fishd.c8bcc8932f95
+.config/fish/fishd.*
 .config/fish/functions

@@ -27,7 +27,8 @@ if [ (uname -s) = "Darwin" ]
     #set PATH "$PATH:/opt/local/bin:/opt/local/sbin:/usr/local/sbin"
     #set -g -x LANG 'en_US.UTF-8'
     set -g -x BYOBU_PREFIX (brew --prefix)
-    alias supervisorctl="supervisorctl -c $HOME/.supervisord/supervisord.conf"
+    alias svc="supervisorctl -c $HOME/.supervisord/supervisord.conf"
+    set -g -x LC_CTYPE $LANG
 end
 
 # Linux
@@ -59,5 +60,7 @@ alias ideviceinfo='env DYLD_LIBRARY_PATH=/opt/libimobiledevice-macosx /opt/libim
 # set -g -x PATH "/opt/adt-bundle-mac-x86_64-20131030/sdk/tools:/opt/adt-bundle-mac-x86_64-20131030/sdk/platform-tools:/opt/adt-bundle-mac-x86_64-20131030/sdk/build-tools/android-4.4:/opt/android-ndk-r8e" $PATH
 set -g -x PATH "/opt/bin" $PATH
 set -g -x PATH "$HOME/.bin" $PATH
+set -g -x PATH "$HOME/Documents/ServicesBox/bin" $PATH
+set -g -x PATH "/usr/local/mysql/bin" $PATH
 set -g -x LUAJIT '/usr/local/bin/luajit'
 set -g -x DOCKER_HOST 'tcp://'
