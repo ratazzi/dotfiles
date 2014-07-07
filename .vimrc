@@ -1,108 +1,29 @@
 " Author ratazzi <ratazzi.potts@gmail.com>
 " URL http://www.ratazzi.org/
 
-" Vundle {{{
 set nocompatible
-" if has('vim_starting')
-"     set nocompatible
-"     set runtimepath+=~/.vim/bundle/neobundle.vim/
-" endif
-filetype off
-
-set rtp+=~/.vim/bundle/vundle/
 set shell=/bin/bash
-call vundle#rc()
+" set ttyfast
+set noerrorbells
+set visualbell
+" modeline
+set modelines=2
+set laststatus=2
+set title
 
-" call neobundle#rc(expand('~/.vim/bundle/'))
-" Bundle 'Shougo/neobundle.vim'
-" Bundle 'Shougo/vimproc'
-
-" original repos on github
-Bundle 'gmarik/vundle'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'vim-scripts/tComment'
-" Bundle 'tpope/vim-surround'
-Bundle 'vim-scripts/grep.vim'
-" Bundle 'ahao/vimcdoc'
-
-" ctrlp.vim
-Bundle 'kien/ctrlp.vim'
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlPMixed'
-
-" snipMate
-" Bundle 'msanders/snipmate.vim'
-" let g:snippets_dir = "$HOME/.vim/snippets"
-Bundle "SirVer/ultisnips"
-let g:UltiSnipsSnippetDirectories=["UltiSnips", expand('~/.vim/snippets/')]
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-
-" vim-session
-Bundle 'xolox/vim-misc'
-Bundle 'xolox/vim-session'
-" set sessionoptions+=resize,winpos
-let g:session_directory = expand('~/.tmp/sessions')
-let g:session_autosave = 'yes'
-let g:session_autoload = 'no'
-
-" Command-T
-Bundle 'wincent/Command-T'
-let g:CommandTMaxHeight=15
-
-Bundle 'klen/python-mode'
-let g:pymode_folding = 0
-let g:pymode_motion = 0
-let g:pymode_lint_ignore = "E302,E501,W901"
-let g:pymode_rope = 0
-
-" vim-javascript
-Bundle "pangloss/vim-javascript"
-let g:html_indent_inctags = "html,body,head,tbody"
-let g:html_indent_script1 = "inc"
-let g:html_indent_style1 = "inc"
-
-Bundle "mitsuhiko/vim-jinja"
-Bundle "vim-scripts/iptables"
-Bundle "groenewege/vim-less"
-Bundle "vim-scripts/applescript.vim"
-" Bundle "ratazzi/blackboard.vim"
-Bundle "zaiste/tmux.vim"
-Bundle "brandonbloom/vim-proto"
-Bundle "tsaleh/vim-matchit"
-Bundle "tpope/vim-markdown"
-Bundle "mileszs/ack.vim"
-Bundle "rodjek/vim-puppet"
-Bundle "tshirtman/vim-cython"
-
-" Rails
-Bundle "tpope/vim-rails"
-
-" easy-align
-Bundle "junegunn/vim-easy-align"
-vnoremap <silent> <Enter> :EasyAlign<Enter>
-
-Bundle "Lokaltog/vim-powerline"
-Bundle "junegunn/goyo.vim"
-Bundle "dag/vim-fish"
-
-" vim-startify
-Bundle "mhinz/vim-startify"
-let g:startify_session_dir = expand('~/.tmp/sessions')
-let g:startify_list_order = ['sessions', 'files', 'dir', 'bookmarks']
-
-" NeoBundleCheck
+" This loads all the plugins specified in ~/.vim/vundles.vim
+" Use Vundle plugin to manage all other plugins
+if filereadable(expand("~/.vim/vundles.vim"))
+    source ~/.vim/vundles.vim
+endif
 
 " shortcut
-map <Space>m <C-W>_
-" map <Space>g 2<C-]>
-map <Space>g :CommandT<CR>
-map <Space>b :CommandTBuffer<CR>
-map <Space>t :tj<CR>
-map <Space>f :NERDTreeToggle<CR>
-map <Space>r :PromptVimTmuxCommand<CR>
-" inoremap jj <ESC>
+let mapleader=","
+map <leader>m <C-W>_
+map <leader>g :CommandT<CR>
+map <leader>b :CommandTBuffer<CR>
+map <leader>t :tj<CR>
+inoremap jj <ESC>
 
 " paste
 nnoremap <F2> :set invpaste paste?<CR>
@@ -110,8 +31,7 @@ imap <F2> <C-O>:set invpaste paste?<CR>
 set pastetoggle=<F2>
 
 " indent and tabstop
-set autoindent shiftwidth=4
-set cindent shiftwidth=4
+set autoindent
 set smartindent
 set tabstop=4
 set expandtab
@@ -120,21 +40,25 @@ set softtabstop=4
 
 " general options
 " set textwidth=110
-set helplang=cn
-set history=100
+syntax on
+filetype on
+filetype plugin on
+filetype indent on
+
+set history=1000
 set magic
 set number
 set ruler
 set hlsearch
 set incsearch
 set showmode
+" Show the (partial) command as it’s being typed
 set showcmd
-set nocompatible
 set nobackup
 set showmatch
 set fileencodings=utf-8,gb2312,gbk,gb18030,cp936
 set fileencoding=utf-8
-set enc=utf-8
+set enc=utf-8 nobomb
 set fileformat=unix
 set dictionary+=/usr/share/dict/words
 " swapfile dirs
@@ -142,37 +66,24 @@ set dir=$HOME/.tmp//,$HOME/tmp//
 set wildignore+=.DS_Store,*.sw?,.git,.svn,.hg
 set wildignore+=*.pyc,*.egg,*.egg-info
 set tags+=./tags,tags,$HOME/.tmp/tags
-set modelines=2
+
 " Display tabs and trailing spaces visually
 set list listchars=tab:\ \ ,trail:·
 
 if has('persistent_undo')
-    silent !mkdir ~/.vim/undo > /dev/null 2>&1
+    silent !mkdir ~/.tmp/undo > /dev/null 2>&1
     set undofile
     set undodir=$HOME/.tmp/undo
     set undolevels=500
 endif
-
-syntax on
-filetype on
-filetype plugin on
-filetype indent on
 
 " set imd
 " au InsertEnter * set noimd
 " au InsertLeave * set imd
 " au FocusGained * set imd
 
-" man
-" runtime ftplugin/man.vim
-
-" NERDTree
-let NERDTreeIgnore=['pyc']
-
 " hide toolbar, menu {{{
 if has("gui")
-    "set guioptions-=e
-    "set guioptions-=m
     set guioptions-=T
     set transparency=5
 endif
@@ -182,11 +93,6 @@ endif
 if has('mac')
     set t_Co=256
     set guifont=Monaco:h14
-elseif has('win32')
-    set guifont=Courier_New:h10:cANSI
-    language messages en_US.utf-8
-    source $VIMRUNTIME/delmenu.vim
-    source $VIMRUNTIME/menu.vim
 else
     set guifont=Ubuntu\ Mono\ 13
     set guifontwide=WenQuanYi\ Micro\ Hei\ Mono\ 12
@@ -209,20 +115,18 @@ else
 endif
 " }}}
 
-" .vimrc auto reload {{{
-autocmd! BufWritePost .vimrc source $HOME/.vimrc
-if has('win32')
-    autocmd! BufWritePost _vimrc source $HOME/_vimrc
-    let NERDTreeIgnore=['ntuser', 'NTUSER']
-endif
-" }}}
+" Strip trailing whitespace (,ss)
+function! StripWhitespace()
+	let save_cursor = getpos(".")
+	let old_query = getreg('/')
+	:%s/\s\+$//e
+	call setpos('.', save_cursor)
+	call setreg('/', old_query)
+endfunction
+noremap <leader>ss :call StripWhitespace()<CR>
 
 " autocmd {{{
-" tab to space
-" au BufWrite *.php,*.py,*.yaml,*.html,*.css :%retab
-" to unix
-" au BufWrite *.* :set fileformat=unix
-
+autocmd! BufWritePost .vimrc source $HOME/.vimrc
 au BufNewFile,BufRead *.pac set syntax=pac
 au BufNewFile,BufRead *.yaml.sample,*.yml.sample :set ft=yaml
 au BufNewFile,BufRead *.yaml,*.yaml.sample,*.yml,*.yml.sample :setlocal shiftwidth=2 tabstop=2
@@ -230,7 +134,6 @@ au BufNewFile,BufRead *.md,*.mkd,*.markdown set ai formatoptions=tcronqn2 commen
 au BufRead,BufNewFile *.css set ft=css syntax=css3 
 au BufNewFile,BufRead *.rb,*.erb,Rakefile,Podfile set shiftwidth=2 tabstop=2
 au BufReadCmd *.ipa,*.apk,*.fla call zip#Browse(expand("<amatch>"))
-set title
 
 " Automating read-only access to existing files
 autocmd SwapExists * let v:swapchoice = 'o'
@@ -255,18 +158,8 @@ autocmd BufWinEnter *
             \ endif
 
 set foldmethod=indent
-set foldenable
-set foldmethod=manual
+set nofoldenable
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
-" }}}
-
-" status line {{{
-set laststatus=2
-" set statusline=%1*[%n]\ %2*%f\ %3*%y\ [%{&fenc}]\ [%{&ff}]\ %=%4*line:%2*%l,%c\ \ \ %1*%P
-" hi User1 guifg=#b2e974 guibg=black gui=bold ctermfg=149 cterm=bold
-" hi User2 guifg=#60a3f6 guibg=black gui=bold ctermfg=75 cterm=bold
-" hi User3 guifg=#e8cc8f guibg=black gui=bold ctermfg=222 cterm=bold
-" hi User4 guifg=gray guibg=black gui=bold ctermfg=gray cterm=bold
 " }}}
 
 " keyboard, mouse in Linux, Win {{{
