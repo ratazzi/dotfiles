@@ -4,6 +4,33 @@
 
 (prefer-coding-system 'utf-8-unix)
 
+; el-get
+(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
+(unless (require 'el-get nil 'noerror)
+    (with-current-buffer
+              (url-retrieve-synchronously
+                      "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
+          (goto-char (point-max))
+              (eval-print-last-sexp)))
+
+(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
+(el-get 'sync)
+
+(require 'init-smex)
+(require 'init-autopair)
+
+; (setq evil-emacs-state-modes nil)
+; (evil-mode 1)
+
+(yas-global-mode 1)
+
+(require 'session)
+; (desktop-save-mode 1)
+(add-hook 'after-init-hook 'session-initialize)
+(load "desktop")
+(desktop-load-default)
+(desktop-read)
+
 (push "~/.runtime/bin" exec-path)
 (setenv "PATH"
         (concat
@@ -14,15 +41,19 @@
 (if (eq system-type 'darwin)
     (progn
       (set-default-font "-unknown-Monaco-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")
+      ; (set-default-font "Monaco-14")
       )
-  (set-default-font "-unknown-Ubuntu Mono-normal-normal-normal-*-17-*-*-*-m-0-iso10646-1")
+  (set-default-font "-unknown-Ubuntu Mono-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")
   )
 
 (when (display-graphic-p)
-  (dolist (charset '(kana han symbol cjk-misc bopomofo gb18030))
-    (set-fontset-font (frame-parameter nil 'font)
-                      charset
-                      (font-spec :family "Hiragino Sans GB" :size 14))))
+  (progn
+    (dolist (charset '(kana han symbol cjk-misc bopomofo gb18030))
+      (set-fontset-font (frame-parameter nil 'font)
+                        charset
+                        (font-spec :family "Hiragino Sans GB" :size 14)))
+    )
+  )
 
 (require 'linum)
 (global-linum-mode t)
@@ -35,7 +66,6 @@
 (require 'color-theme)
 (color-theme-initialize)
 (load-file "~/.emacs.d/themes/blackboard-theme.el")
-; (color-theme-blackboard)
 
 ; hide toolbar
 (if (fboundp 'tool-bar-mode)
@@ -44,7 +74,7 @@
 (if (fboundp 'menu-bar-mode)
   (menu-bar-mode -1))
 (setq visible-bell t)
- 
+
 (setq-default tab-width 4)
 (setq tab-stop-list (mapcar (lambda (x) (* x tab-width))
                             (number-sequence 1 40)))
@@ -54,6 +84,16 @@
 
 ; 将yes/no替换为y/n
 (fset 'yes-or-no-p 'y-or-n-p)
+
+(global-set-key (kbd "RET") 'newline-and-indent)
+
+;; (setq show-paren-style 'parenthesis)
+;; (setq show-paren-delay 0)
+(show-paren-mode t)
+(set-face-bold-p 'show-paren-match t)
+(set-face-foreground 'show-paren-match "red")
+(set-face-background 'show-paren-match nil)
+(setq line-move-visual nil)
 
 ;; recent
 ;; (require 'recentf)
@@ -101,3 +141,4 @@
       )
     )
   )
+
