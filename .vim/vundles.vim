@@ -36,8 +36,8 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " vim-session
 Bundle 'xolox/vim-misc'
-" Bundle 'xolox/vim-session'
-" set sessionoptions+=resize,winpos
+Bundle 'xolox/vim-session'
+set sessionoptions+=resize,winpos
 let g:session_directory = expand('~/.tmp/sessions')
 let g:session_autosave = 'yes'
 let g:session_autoload = 'no'
@@ -49,8 +49,14 @@ let g:CommandTMaxHeight=15
 Bundle 'klen/python-mode'
 let g:pymode_folding = 0
 let g:pymode_motion = 0
+let g:pymode_lint = 1
+let g:pymode_warnings = 1
+" " let g:pymode_lint_cwindow = 0
+let g:pymode_lint_on_write = 1
+let g:pymode_lint_message = 1
 let g:pymode_lint_ignore = "E302,E501,W901"
 let g:pymode_rope = 0
+let g:pymode_breakpoint_key = ''
 
 " vim-javascript
 Bundle "pangloss/vim-javascript"
@@ -70,6 +76,8 @@ Bundle "tpope/vim-markdown"
 Bundle "mileszs/ack.vim"
 Bundle "rodjek/vim-puppet"
 Bundle "tshirtman/vim-cython"
+Bundle "honza/dockerfile.vim"
+" Bundle "szw/vim-ctrlspace"
 
 " Rails
 Bundle "tpope/vim-rails"
@@ -86,6 +94,19 @@ Bundle "dag/vim-fish"
 Bundle "mhinz/vim-startify"
 let g:startify_session_dir = expand('~/.tmp/sessions')
 let g:startify_list_order = ['sessions', 'files', 'dir', 'bookmarks']
+
+" Coffee
+Bundle "kchmck/vim-coffee-script"
+
+" Swift
+Bundle "toyamarinyon/vim-swift"
+
+Bundle "vim-scripts/c.vim"
+" let g:C_CCompiler = 'clang'
+" let g:C_CplusCompiler = 'clang'
+let g:C_CFlags = '-Wall -g -O0 -c -Wimplicit-function-declaration'
+
+Bundle "gilligan/vim-lldb"
 
 " NeoBundleCheck
 " }}}

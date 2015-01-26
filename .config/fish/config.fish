@@ -8,7 +8,7 @@ set fish_theme ratazzi
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-fish/plugins/*)
 # Custom plugins may be added to ~/.oh-my-fish/custom/plugins/
 # Example format: set fish_plugins autojump bundler
-set fish_plugins autojump bundler python rails rake rvm tmux vi-mode
+set fish_plugins autojump bundler python rails rake tmux vi-mode rvm
 
 # Path to your custom folder (default path is $FISH/custom)
 #set fish_custom $HOME/.dotfiles/.oh-my-fish
@@ -46,6 +46,11 @@ set -g -x POEM_SETTINGS local_settings
 set -g -x WEB_SETTINGS local_settings
 set -g -x PYTHONSTARTUP $HOME/.pystartup.py
 
+# # pyenv
+# set PYENV_ROOT $HOME/.pyenv
+# set -x PATH $PYENV_ROOT/shims $PYENV_ROOT/bin $PATH
+# pyenv rehash
+
 # alias
 alias secret.gen="head -2 /dev/urandom | sha1sum | base64"
 alias bm='byobu-tmux'
@@ -62,5 +67,7 @@ set -g -x PATH "/opt/bin" $PATH
 set -g -x PATH "$HOME/.bin" $PATH
 set -g -x PATH "$HOME/Documents/ServicesBox/bin" $PATH
 set -g -x PATH "/usr/local/mysql/bin" $PATH
+# Add RVM to PATH for scripting
+set -g -x PATH "$HOME/.rvm/bin" $PATH
 set -g -x LUAJIT '/usr/local/bin/luajit'
 set -g -x DOCKER_HOST 'tcp://'

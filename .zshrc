@@ -143,6 +143,7 @@ fi
 [[ -s "$HOME/.bin" ]] && PATH="$HOME/.bin:$PATH"
 
 # rvm
+# export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
 # ServicesBox
@@ -153,8 +154,8 @@ alias secret.gen="head -2 /dev/urandom | sha1sum | base64"
 alias bm='byobu-tmux'
 
 [[ -d "/usr/local/mysql/bin" ]] && export PATH="/usr/local/mysql/bin:$PATH"
-
-# vim: set fdm=marker:
-
+#
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# vim: set fdm=marker:

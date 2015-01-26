@@ -1,11 +1,11 @@
-URxvt.termName: xterm-256color
+URxvt.termName: rxvt-unicode-256color
 URxvt.preeditType:Root
 ! Input method
-URxvt.inputMethod:ibus
+! URxvt.inputMethod:ibus
 
 URxvt.depth:32
 
-URxvt.urlLauncher:firefox
+! URxvt.urlLauncher:firefox
 URxvt.matcher.button:1
 Urxvt.perl-ext-common:matcher
 
@@ -34,11 +34,11 @@ Xft.antialias: 1
 Xft.dpi:       96
 Xft.rgba:      rgb
 urxvt.letterSpace: -1
-URxvt.font:xft:Ubuntu Mono:size=13:antialias=true
-URxvt.boldfont:xft:WenQuanYi Micro Hei Mono:size=12:style=Regular:antialias=true
+! URxvt.font:xft:Ubuntu Mono:size=13:antialias=true
+! URxvt.boldfont:xft:WenQuanYi Micro Hei Mono:size=12:style=Regular:antialias=true
 
 ! Plugins
-urxvt.perl-ext-common : matcher,clipboard
+! urxvt.perl-ext-common : matcher,clipboard
 
 ! Color theme
 URxvt.background: #131313
