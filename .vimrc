@@ -23,7 +23,7 @@ map <leader>m <C-W>_
 map <leader>g :CommandT<CR>
 map <leader>b :CommandTBuffer<CR>
 map <leader>t :tj<CR>
-inoremap jj <ESC>
+" inoremap jj <ESC>
 
 " paste
 nnoremap <F2> :set invpaste paste?<CR>
@@ -37,6 +37,7 @@ set tabstop=4
 set expandtab
 set smarttab
 set softtabstop=4
+set shiftwidth=4
 
 " general options
 " set textwidth=110
@@ -59,7 +60,8 @@ set showmatch
 set fileencodings=utf-8,gb2312,gbk,gb18030,cp936
 set fileencoding=utf-8
 set enc=utf-8 nobomb
-set fileformat=unix
+" set fileformat=unix
+set fileformats+=dos
 set dictionary+=/usr/share/dict/words
 " swapfile dirs
 set dir=$HOME/.tmp//,$HOME/tmp//
@@ -92,7 +94,8 @@ endif
 " fonts {{{
 if has('mac')
     set t_Co=256
-    set guifont=Monaco:h14
+    " set guifont=Monaco:h14
+    set guifont=PT\ Mono:h14
 else
     set guifont=Ubuntu\ Mono\ 13
     set guifontwide=WenQuanYi\ Micro\ Hei\ Mono\ 12
@@ -132,8 +135,10 @@ au BufNewFile,BufRead *.yaml.sample,*.yml.sample :set ft=yaml
 au BufNewFile,BufRead *.yaml,*.yaml.sample,*.yml,*.yml.sample :setlocal shiftwidth=2 tabstop=2
 au BufNewFile,BufRead *.md,*.mkd,*.markdown set ai formatoptions=tcronqn2 comments=n:>
 au BufRead,BufNewFile *.css set ft=css syntax=css3 
-au BufNewFile,BufRead *.rb,*.erb,Rakefile,Podfile set shiftwidth=2 tabstop=2
+au BufNewFile,BufRead *.rb,*.erb,Rakefile,Podfile,*.html set shiftwidth=2 tabstop=2
+au BufNewFile,BufRead *.js set shiftwidth=4 tabstop=4
 au BufReadCmd *.ipa,*.apk,*.fla call zip#Browse(expand("<amatch>"))
+autocmd! BufWritePost *.py PymodeLint
 
 " Automating read-only access to existing files
 autocmd SwapExists * let v:swapchoice = 'o'
@@ -196,5 +201,7 @@ inoremap <C-S> <C-C>:update<CR>
 if filereadable(expand('~/.vimrc.local'))
     source ~/.vimrc.local
 endif
+
+let g:NERDTreeWinPos = "right"
 
 " vim: fdm=marker

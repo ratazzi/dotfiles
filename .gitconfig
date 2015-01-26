@@ -9,6 +9,7 @@
     editor = vim
     quotepath = false
     gitproxy = /Users/ratazzi/.dotfiles/socks5proxywrapper for github.com
+    excludesfile = /Users/ratazzi/.gitignore_global
 
 [color]
     ui = true
