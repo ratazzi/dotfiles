@@ -24,6 +24,9 @@ Bundle 'vim-scripts/grep.vim'
 Bundle 'kien/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlPMixed'
+let g:ctrlp_mruf_relative = 1
+" let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_working_path_mode = 0
 
 " snipMate
 " Bundle 'msanders/snipmate.vim'
@@ -107,6 +110,10 @@ Bundle "vim-scripts/c.vim"
 let g:C_CFlags = '-Wall -g -O0 -c -Wimplicit-function-declaration'
 
 Bundle "gilligan/vim-lldb"
+
+Bundle 'wakatime/vim-wakatime'
+
+Bundle 'fatih/vim-go'
 
 " NeoBundleCheck
 " }}}

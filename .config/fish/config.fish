@@ -71,3 +71,7 @@ set -g -x PATH "/usr/local/mysql/bin" $PATH
 set -g -x PATH "$HOME/.rvm/bin" $PATH
 set -g -x LUAJIT '/usr/local/bin/luajit'
 set -g -x DOCKER_HOST 'tcp://'
+set -g -x GOPATH $HOME/.go
+set -x DOCKER_HOST tcp://(boot2docker ip):2376
+set -x DOCKER_CERT_PATH $HOME/.boot2docker/certs/boot2docker-vm
+set -x DOCKER_TLS_VERIFY 1
