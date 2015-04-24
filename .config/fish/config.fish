@@ -11,7 +11,7 @@ set fish_theme ratazzi
 set fish_plugins autojump bundler python rails rake tmux vi-mode rvm
 
 # Path to your custom folder (default path is $FISH/custom)
-#set fish_custom $HOME/.dotfiles/.oh-my-fish
+set fish_custom $HOME/.dotfiles/.oh-my-fish.d
 
 # Load oh-my-fish configuration.
 . $fish_path/oh-my-fish.fish
@@ -42,36 +42,32 @@ end
 
 # env
 set -g -x EDITOR (which vim)
-set -g -x POEM_SETTINGS local_settings
-set -g -x WEB_SETTINGS local_settings
 set -g -x PYTHONSTARTUP $HOME/.pystartup.py
 
-# # pyenv
-# set PYENV_ROOT $HOME/.pyenv
-# set -x PATH $PYENV_ROOT/shims $PYENV_ROOT/bin $PATH
-# pyenv rehash
+# pyenv
+set PYENV_ROOT $HOME/.pyenv
+set -x PATH $PYENV_ROOT/shims $PYENV_ROOT/bin $PATH
+[ -x (which pyenv) ]; and pyenv rehash
 
 # alias
 alias secret.gen="head -2 /dev/urandom | sha1sum | base64"
 alias bm='byobu-tmux'
 
-alias ideviceinstaller='env DYLD_LIBRARY_PATH=/opt/libimobiledevice-macosx /opt/libimobiledevice-macosx/ideviceinstaller'
-alias ii='env DYLD_LIBRARY_PATH=/opt/libimobiledevice-macosx /opt/libimobiledevice-macosx/ideviceinstaller -i'
-alias idevicesyslog='env DYLD_LIBRARY_PATH=/opt/libimobiledevice-macosx /opt/libimobiledevice-macosx/idevicesyslog'
-alias idevicescreenshot='env DYLD_LIBRARY_PATH=/opt/libimobiledevice-macosx /opt/libimobiledevice-macosx/idevicescreenshot'
-alias ideviceinfo='env DYLD_LIBRARY_PATH=/opt/libimobiledevice-macosx /opt/libimobiledevice-macosx/ideviceinfo'
-
-# set -g -x NDK_ROOT "/opt/android-ndk-r8e"
-# set -g -x PATH "/opt/adt-bundle-mac-x86_64-20131030/sdk/tools:/opt/adt-bundle-mac-x86_64-20131030/sdk/platform-tools:/opt/adt-bundle-mac-x86_64-20131030/sdk/build-tools/android-4.4:/opt/android-ndk-r8e" $PATH
 set -g -x PATH "/opt/bin" $PATH
 set -g -x PATH "$HOME/.bin" $PATH
 set -g -x PATH "$HOME/Documents/ServicesBox/bin" $PATH
 set -g -x PATH "/usr/local/mysql/bin" $PATH
+set -g -x PATH "/usr/local/Cellar/gettext/0.19.4/bin" $PATH
+
 # Add RVM to PATH for scripting
 set -g -x PATH "$HOME/.rvm/bin" $PATH
+
 set -g -x LUAJIT '/usr/local/bin/luajit'
-set -g -x DOCKER_HOST 'tcp://'
+
+# go
 set -g -x GOPATH $HOME/.go
+
+# boot2docker
 set -x DOCKER_HOST tcp://(boot2docker ip):2376
 set -x DOCKER_CERT_PATH $HOME/.boot2docker/certs/boot2docker-vm
 set -x DOCKER_TLS_VERIFY 1
