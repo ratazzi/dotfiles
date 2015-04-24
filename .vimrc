@@ -139,6 +139,7 @@ au BufNewFile,BufRead *.rb,*.erb,Rakefile,Podfile,*.html set shiftwidth=2 tabsto
 au BufNewFile,BufRead *.js,*.coffee set shiftwidth=2 tabstop=2
 au BufReadCmd *.ipa,*.apk,*.fla call zip#Browse(expand("<amatch>"))
 autocmd! BufWritePost *.py PymodeLint
+au BufNewFile,BufRead *.py setlocal textwidth=80
 
 " Automating read-only access to existing files
 autocmd SwapExists * let v:swapchoice = 'o'

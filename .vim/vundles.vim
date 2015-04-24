@@ -1,55 +1,65 @@
+" Note: Skip initialization for vim-tiny or vim-small.
+if !1 | finish | endif
 " Vundle {{{
-" if has('vim_starting')
-"     set nocompatible
-"     set runtimepath+=~/.vim/bundle/neobundle.vim/
+if has('vim_starting')
+    if &compatible
+        set nocompatible               " Be iMproved
+    endif
+
+    " Required:
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" let g:make = 'gmake'
+" if system('uname -o') =~ '^GNU/'
+"     let g:make = 'make'
 " endif
-filetype off
+" NeoBundle 'Shougo/vimproc.vim', {'build': {'unix': g:make}}
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+" My Bundles here:
+" Refer to |:NeoBundle-examples|.
+" Note: You don't set neobundle setting in .gvimrc!
 
-" call neobundle#rc(expand('~/.vim/bundle/'))
-" Bundle 'Shougo/neobundle.vim'
-" Bundle 'Shougo/vimproc'
-
-" original repos on github
-Bundle 'gmarik/vundle'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
-Bundle 'vim-scripts/tComment'
-" Bundle 'tpope/vim-surround'
-Bundle 'vim-scripts/grep.vim'
-" Bundle 'ahao/vimcdoc'
+NeoBundle 'rstacruz/sparkup', {'rtp': 'vim/'}
+NeoBundle 'vim-scripts/tComment'
+" NeoBundle 'tpope/vim-surround'
+" NeoBundle 'vim-scripts/grep.vim'
+" NeoBundle 'ahao/vimcdoc'
 
 " ctrlp.vim
-Bundle 'kien/ctrlp.vim'
+NeoBundle 'kien/ctrlp.vim'
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_mruf_relative = 1
 " let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_working_path_mode = 0
 
-" snipMate
-" Bundle 'msanders/snipmate.vim'
-" let g:snippets_dir = "$HOME/.vim/snippets"
-Bundle "SirVer/ultisnips"
+NeoBundle "SirVer/ultisnips"
 let g:UltiSnipsSnippetDirectories=["UltiSnips", expand('~/.vim/snippets/')]
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " vim-session
-Bundle 'xolox/vim-misc'
-Bundle 'xolox/vim-session'
+NeoBundle 'xolox/vim-misc'
+NeoBundle 'xolox/vim-session'
 set sessionoptions+=resize,winpos
 let g:session_directory = expand('~/.tmp/sessions')
 let g:session_autosave = 'yes'
 let g:session_autoload = 'no'
 
-" Command-T
-Bundle 'wincent/Command-T'
-let g:CommandTMaxHeight=15
+" " Command-T
+" NeoBundle 'wincent/Command-T'
+" let g:CommandTMaxHeight=15
 
-Bundle 'klen/python-mode'
+NeoBundle 'klen/python-mode'
 let g:pymode_folding = 0
 let g:pymode_motion = 0
 let g:pymode_lint = 1
@@ -62,58 +72,67 @@ let g:pymode_rope = 0
 let g:pymode_breakpoint_key = ''
 
 " vim-javascript
-Bundle "pangloss/vim-javascript"
+NeoBundle "pangloss/vim-javascript"
 let g:html_indent_inctags = "html,body,head,tbody"
 let g:html_indent_script1 = "inc"
 let g:html_indent_style1 = "inc"
 
-Bundle "mitsuhiko/vim-jinja"
-Bundle "vim-scripts/iptables"
-Bundle "groenewege/vim-less"
-Bundle "vim-scripts/applescript.vim"
-" Bundle "ratazzi/blackboard.vim"
-Bundle "zaiste/tmux.vim"
-Bundle "brandonbloom/vim-proto"
-Bundle "tsaleh/vim-matchit"
-Bundle "tpope/vim-markdown"
-Bundle "mileszs/ack.vim"
-Bundle "rodjek/vim-puppet"
-Bundle "tshirtman/vim-cython"
-Bundle "honza/dockerfile.vim"
-" Bundle "szw/vim-ctrlspace"
+NeoBundle "mitsuhiko/vim-jinja"
+NeoBundle "vim-scripts/iptables"
+NeoBundle "groenewege/vim-less"
+NeoBundle "vim-scripts/applescript.vim"
+" NeoBundle "ratazzi/blackboard.vim"
+" NeoBundle "zaiste/tmux.vim"
+NeoBundle "brandonbloom/vim-proto"
+NeoBundle "tsaleh/vim-matchit"
+NeoBundle "tpope/vim-markdown"
+NeoBundle "mileszs/ack.vim"
+NeoBundle "rodjek/vim-puppet"
+NeoBundle "tshirtman/vim-cython"
+NeoBundle "honza/dockerfile.vim"
+" NeoBundle "szw/vim-ctrlspace"
 
 " Rails
-Bundle "tpope/vim-rails"
+NeoBundle "tpope/vim-rails"
 
 " easy-align
-Bundle "junegunn/vim-easy-align"
+NeoBundle "junegunn/vim-easy-align"
 vnoremap <silent> <Enter> :EasyAlign<Enter>
 
-Bundle "Lokaltog/vim-powerline"
-Bundle "junegunn/goyo.vim"
-Bundle "dag/vim-fish"
+NeoBundle "Lokaltog/vim-powerline"
+NeoBundle "junegunn/goyo.vim"
+NeoBundle "dag/vim-fish"
 
 " vim-startify
-Bundle "mhinz/vim-startify"
+NeoBundle "mhinz/vim-startify"
 let g:startify_session_dir = expand('~/.tmp/sessions')
 let g:startify_list_order = ['sessions', 'files', 'dir', 'bookmarks']
 
 " Coffee
-Bundle "kchmck/vim-coffee-script"
+NeoBundle "kchmck/vim-coffee-script"
 
 " Swift
-Bundle "toyamarinyon/vim-swift"
+NeoBundle "toyamarinyon/vim-swift"
 
-Bundle "vim-scripts/c.vim"
+NeoBundleLazy 'vim-scripts/c.vim', {
+      \ 'autoload' : {
+      \     'filetypes' : ['c', 'cpp'],
+      \    },
+      \ }
 " let g:C_CCompiler = 'clang'
 " let g:C_CplusCompiler = 'clang'
 let g:C_CFlags = '-Wall -g -O0 -c -Wimplicit-function-declaration'
 
-Bundle "gilligan/vim-lldb"
+" NeoBundle "gilligan/vim-lldb"
 
-Bundle 'wakatime/vim-wakatime'
+" NeoBundle 'wakatime/vim-wakatime'
 
-Bundle 'fatih/vim-go'
+" NeoBundle 'fatih/vim-go'
 
-" NeoBundleCheck
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+NeoBundleCheck
 " }}}
