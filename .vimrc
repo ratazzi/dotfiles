@@ -23,6 +23,8 @@ map <leader>m <C-W>_
 map <leader>g :CommandT<CR>
 map <leader>b :CommandTBuffer<CR>
 map <leader>t :tj<CR>
+map <leader>lne :lne<CR>
+map <leader>lp :lp<CR>
 " inoremap jj <ESC>
 
 " paste
@@ -138,7 +140,6 @@ au BufRead,BufNewFile *.css set ft=css syntax=css3
 au BufNewFile,BufRead *.rb,*.erb,Rakefile,Podfile,*.html set shiftwidth=2 tabstop=2
 au BufNewFile,BufRead *.js,*.coffee set shiftwidth=2 tabstop=2
 au BufReadCmd *.ipa,*.apk,*.fla call zip#Browse(expand("<amatch>"))
-autocmd! BufWritePost *.py PymodeLint
 au BufNewFile,BufRead *.py setlocal textwidth=80
 
 " Automating read-only access to existing files

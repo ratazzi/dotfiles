@@ -58,6 +58,7 @@ set -g -x PATH "$HOME/.bin" $PATH
 set -g -x PATH "$HOME/Documents/ServicesBox/bin" $PATH
 set -g -x PATH "/usr/local/mysql/bin" $PATH
 set -g -x PATH "/usr/local/Cellar/gettext/0.19.4/bin" $PATH
+set -g -x PATH "/Applications/Postgres.app/Contents/Versions/9.4/bin" $PATH
 
 # Add RVM to PATH for scripting
 set -g -x PATH "$HOME/.rvm/bin" $PATH
