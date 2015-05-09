@@ -159,3 +159,6 @@ alias bm='byobu-tmux'
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # vim: set fdm=marker:
+
+# added by travis gem
+[ -f /Users/ratazzi/.travis/travis.sh ] && source /Users/ratazzi/.travis/travis.sh

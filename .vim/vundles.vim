@@ -59,17 +59,29 @@ let g:session_autoload = 'no'
 " NeoBundle 'wincent/Command-T'
 " let g:CommandTMaxHeight=15
 
-NeoBundle 'klen/python-mode'
-let g:pymode_folding = 0
-let g:pymode_motion = 0
-let g:pymode_lint = 1
-let g:pymode_warnings = 1
-" " let g:pymode_lint_cwindow = 0
-let g:pymode_lint_on_write = 1
-let g:pymode_lint_message = 1
-let g:pymode_lint_ignore = "E302,E501,W901"
-let g:pymode_rope = 0
-let g:pymode_breakpoint_key = ''
+" NeoBundle 'klen/python-mode'
+" let g:pymode_folding = 0
+" let g:pymode_motion = 0
+" let g:pymode_lint = 1
+" let g:pymode_warnings = 1
+" " " let g:pymode_lint_cwindow = 0
+" let g:pymode_lint_on_write = 1
+" let g:pymode_lint_message = 1
+" let g:pymode_lint_ignore = "E302,E501,W901"
+" let g:pymode_rope = 0
+" let g:pymode_breakpoint_key = ''
+
+NeoBundle 'scrooloose/syntastic'
+" syntastic configuration
+let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_checker_args = "--ignore=E127"
+let g:syntastic_javascript_jshint_args = "--config ".$HOME."/.vim/conf/jshintrc"
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_auto_jump = 3
 
 " vim-javascript
 NeoBundle "pangloss/vim-javascript"
