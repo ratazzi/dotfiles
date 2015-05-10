@@ -8,3 +8,6 @@
 [submodule ".oh-my-fish"]
 	path = .oh-my-fish
 	url = https://github.com/bpinto/oh-my-fish.git
+[submodule ".vim/bundle/neobundle.vim"]
+	path = .vim/bundle/neobundle.vim
+	url = https://github.com/Shougo/neobundle.vim.git
