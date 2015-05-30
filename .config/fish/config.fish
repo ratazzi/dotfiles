@@ -51,7 +51,6 @@ set -x PATH $PYENV_ROOT/shims $PYENV_ROOT/bin $PATH
 
 # alias
 alias secret.gen="head -2 /dev/urandom | sha1sum | base64"
-alias bm='byobu-tmux'
 
 set -g -x PATH "/opt/bin" $PATH
 set -g -x PATH "$HOME/.bin" $PATH
