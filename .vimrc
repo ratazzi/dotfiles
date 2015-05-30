@@ -3,13 +3,18 @@
 
 set nocompatible
 set shell=/bin/bash
-" set ttyfast
+set ttyfast
 set noerrorbells
 set visualbell
 " modeline
 set modelines=2
 set laststatus=2
 set title
+
+" set synmaxcol=128
+" set ttyscroll=3
+" set lazyredraw " to avoid scrolling problems
+set ttyfast ttymouse=xterm2 lazyredraw ttyscroll=3
 
 " This loads all the plugins specified in ~/.vim/vundles.vim
 " Use Vundle plugin to manage all other plugins
@@ -23,9 +28,12 @@ map <leader>m <C-W>_
 map <leader>g :CommandT<CR>
 map <leader>b :CommandTBuffer<CR>
 map <leader>t :tj<CR>
-map <leader>lne :lne<CR>
-map <leader>lp :lp<CR>
 " inoremap jj <ESC>
+
+" Location bindings
+noremap <leader>e :lopen<CR>
+noremap <leader>] :lnext<CR>
+noremap <leader>[ :lprev<CR>
 
 " paste
 nnoremap <F2> :set invpaste paste?<CR>
@@ -110,6 +118,7 @@ endif
 
 " colorscheme {{{
 if has('gui_running')
+    set cursorline
     silent! colorscheme smyck
 elseif &t_Co > 255 
     " xterm-256color
