@@ -2,7 +2,7 @@
 " URL http://www.ratazzi.org/
 
 set nocompatible
-set shell=/bin/bash
+set shell=bash
 set ttyfast
 set noerrorbells
 set visualbell
@@ -48,6 +48,7 @@ set expandtab
 set smarttab
 set softtabstop=4
 set shiftwidth=4
+set shiftround
 
 " general options
 " set textwidth=110
@@ -77,19 +78,21 @@ set dictionary+=/usr/share/dict/words
 set dir=$HOME/.tmp//,$HOME/tmp//
 set wildignore+=.DS_Store,*.sw?,.git,.svn,.hg
 set wildignore+=*.pyc,*.egg,*.egg-info
-set tags+=./tags,tags,$HOME/.tmp/tags
+set tags+=./tags,tags,$HOME/.tmp/tags,~/.vimtags
+set ignorecase smartcase
 
 " Display tabs and trailing spaces visually
 set list listchars=tab:\ \ ,trail:·
 
 if has('persistent_undo')
-    silent !mkdir ~/.tmp/undo > /dev/null 2>&1
+    silent !mkdir -p ~/.tmp/undo > /dev/null 2>&1
     set undofile
     set undodir=$HOME/.tmp/undo
     set undolevels=500
 endif
 
-" set imd
+" set noimd
+" set ims
 " au InsertEnter * set noimd
 " au InsertLeave * set imd
 " au FocusGained * set imd
@@ -106,6 +109,7 @@ if has('mac')
     set t_Co=256
     " set guifont=Monaco:h14
     set guifont=PT\ Mono:h14
+    " set guifont=Monoid:h12
 else
     set guifont=Ubuntu\ Mono\ 13
     set guifontwide=WenQuanYi\ Micro\ Hei\ Mono\ 12
@@ -118,7 +122,7 @@ endif
 
 " colorscheme {{{
 if has('gui_running')
-    set cursorline
+    " set cursorline
     silent! colorscheme smyck
 elseif &t_Co > 255 
     " xterm-256color
@@ -149,7 +153,11 @@ au BufRead,BufNewFile *.css set ft=css syntax=css3
 au BufNewFile,BufRead *.rb,*.erb,Rakefile,Podfile,*.html set shiftwidth=2 tabstop=2
 au BufNewFile,BufRead *.js,*.coffee set shiftwidth=2 tabstop=2
 au BufReadCmd *.ipa,*.apk,*.fla call zip#Browse(expand("<amatch>"))
-au BufNewFile,BufRead *.py setlocal textwidth=80
+au BufNewFile,BufRead *.py setlocal textwidth=79 nosmartindent
+" autocmd BufWritePost *
+"       \ if filereadable('tags') |
+"       \   call system('ctags -a '.expand('%')) |
+"       \ endif
 
 " Automating read-only access to existing files
 autocmd SwapExists * let v:swapchoice = 'o'

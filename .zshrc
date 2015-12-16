@@ -123,6 +123,8 @@ if [[ "$OS" == 'Darwin' ]]; then
     export LANG='en_US.UTF-8'
     export BYOBU_PREFIX=$(brew --prefix)
     # alias supervisorctl="supervisorctl -c $HOME/.supervisord/supervisord.conf"
+    bindkey '^P' history-search-backward
+    bindkey '^N' history-search-forward
 fi
 
 # Linux
@@ -152,6 +154,7 @@ fi
 alias lx="$HOME/Dropbox/ratazzi/utils/xunlei-lixian/lixian_cli.py"
 alias secret.gen="head -2 /dev/urandom | sha1sum | base64"
 alias bm='byobu-tmux'
+alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
 
 [[ -d "/usr/local/mysql/bin" ]] && export PATH="/usr/local/mysql/bin:$PATH"
 #

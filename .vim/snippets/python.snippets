@@ -1,6 +1,6 @@
 snippet setup "setup" b
 #!/usr/bin/env python
-# encoding=utf-8
+# -*- coding: utf-8 -*-
 
 from setuptools import setup, find_packages
 
@@ -56,6 +56,45 @@ snippet module_doc "module_doc" b
     :copyright: (c) ${3}
     :license: ${4}
 """
+endsnippet
+
+snippet logging_sentry "logging_sentry" b
+# {{{ Sentry
+if hasattr(settings, 'SENTRY_DSN'):
+    from raven import Client
+    from raven.contrib.bottle import Sentry
+    client = Client(settings.SENTRY_DSN)
+    application = Sentry(application, client)
+    logger.info('setup sentry with {}'.format(settings.SENTRY_DSN))
+# }}}
+endsnippet
+
+snippet LOGGING "LOGGING" b
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'propagate': False,
+    'formatters': {
+        'simple': {
+            'format': '%(asctime)s %(levelname)s %(message)s'
+        },
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'simple'
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'formatter': 'simple',
+        'level': 'INFO',
+        'propagate': True,
+    },
+    'loggers': {
+    },
+}
 endsnippet
 
 # vim: set ft=snippets:

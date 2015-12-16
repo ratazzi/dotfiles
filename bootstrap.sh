@@ -18,7 +18,6 @@ ln -s "$DOTFILES/.zshrc" "$HOME/.zshrc"
 
 # tmux
 ln -s "$DOTFILES/.tmux.conf" "$HOME/.tmux.conf"
-ln -s "$DOTFILES/.byoburc.tmux" "$HOME/.byoburc.tmux"
 
 # git
 ln -s "$DOTFILES/.gitconfig" "$HOME/.gitconfig"
