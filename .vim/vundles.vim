@@ -55,22 +55,6 @@ let g:session_directory = expand('~/.tmp/sessions')
 let g:session_autosave = 'yes'
 let g:session_autoload = 'no'
 
-" " Command-T
-" NeoBundle 'wincent/Command-T'
-" let g:CommandTMaxHeight=15
-
-" NeoBundle 'klen/python-mode'
-" let g:pymode_folding = 0
-" let g:pymode_motion = 0
-" let g:pymode_lint = 1
-" let g:pymode_warnings = 1
-" " " let g:pymode_lint_cwindow = 0
-" let g:pymode_lint_on_write = 1
-" let g:pymode_lint_message = 1
-" let g:pymode_lint_ignore = "E302,E501,W901"
-" let g:pymode_rope = 0
-" let g:pymode_breakpoint_key = ''
-
 NeoBundle 'scrooloose/syntastic'
 " syntastic configuration
 let g:syntastic_python_checkers = ['flake8']
@@ -81,7 +65,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-let g:syntastic_auto_jump = 3
+" let g:syntastic_auto_jump = 3
 
 " vim-javascript
 NeoBundle "pangloss/vim-javascript"
@@ -91,18 +75,14 @@ let g:html_indent_style1 = "inc"
 
 NeoBundle "mitsuhiko/vim-jinja"
 NeoBundle "vim-scripts/iptables"
-NeoBundle "groenewege/vim-less"
 NeoBundle "vim-scripts/applescript.vim"
 " NeoBundle "ratazzi/blackboard.vim"
-" NeoBundle "zaiste/tmux.vim"
 NeoBundle "brandonbloom/vim-proto"
 NeoBundle "vim-scripts/matchit.zip"
 NeoBundle "tpope/vim-markdown"
-NeoBundle "mileszs/ack.vim"
 NeoBundle "rodjek/vim-puppet"
 NeoBundle "tshirtman/vim-cython"
 NeoBundle "honza/dockerfile.vim"
-" NeoBundle "szw/vim-ctrlspace"
 
 " Rails
 NeoBundle "tpope/vim-rails"
@@ -112,19 +92,14 @@ NeoBundle "junegunn/vim-easy-align"
 vnoremap <silent> <Enter> :EasyAlign<Enter>
 
 NeoBundle "Lokaltog/vim-powerline"
-NeoBundle "junegunn/goyo.vim"
+" NeoBundle "junegunn/goyo.vim"
 NeoBundle "dag/vim-fish"
-
-" vim-startify
-NeoBundle "mhinz/vim-startify"
-let g:startify_session_dir = expand('~/.tmp/sessions')
-let g:startify_list_order = ['sessions', 'files', 'dir', 'bookmarks']
 
 " Coffee
 NeoBundle "kchmck/vim-coffee-script"
 
 " Swift
-NeoBundle "toyamarinyon/vim-swift"
+" NeoBundle "toyamarinyon/vim-swift"
 
 NeoBundleLazy 'vim-scripts/c.vim', {
       \ 'autoload' : {
@@ -140,6 +115,16 @@ let g:C_CFlags = '-Wall -g -O0 -c -Wimplicit-function-declaration'
 " NeoBundle 'wakatime/vim-wakatime'
 
 " NeoBundle 'fatih/vim-go'
+
+NeoBundle 'xolox/vim-easytags'
+let g:easytags_cmd = '/usr/local/bin/ctags'
+let g:easytags_async = 1
+let g:easytags_dynamic_files = 1
+let g:easytags_events = ['BufWritePost']
+let g:easytags_auto_highlight = 0
+let g:easytags_include_members = 1
+
+NeoBundle 'CodeFalling/fcitx-vim-osx'
 
 call neobundle#end()
 
