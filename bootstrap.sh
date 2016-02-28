@@ -9,8 +9,7 @@ DOTFILES="$HOME/.dotfiles"
 [[ ! -x `which vim` ]] && echo -e "\033[01;31mvim not found.\033[00m\n" && exit 1
 
 if [ ! -d "$DOTFILES" ]; then
-    git clone git://github.com/ratazzi/dotfiles.git $DOTFILES
-    cd $DOTFILES && git submodule init && git submodule update
+    git clone --recursive git://github.com/ratazzi/dotfiles.git $DOTFILES
 fi
 
 ln -s "$DOTFILES/.oh-my-zsh" "$HOME/.oh-my-zsh"
