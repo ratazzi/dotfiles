@@ -109,20 +109,13 @@ export EDITOR=`which vim`
 # ZSH_HIGHLIGHT_STYLES[path]='none'
 # ZSH_HIGHLIGHT_PATTERNS+=('rm -rf *' 'fg=red,bold')
 
-# Macbook Pro battery percent
-function battery_charge {
-    echo `~/.bin/battery.py` 2>/dev/null
-}
+unset _OLD_VIRTUAL_PATH
 
 # Mac
 if [[ "$OS" == 'Darwin' ]]; then
-    #RPROMPT='$(battery_charge)'
-    #LSCOLORS=exfxcxdxbxegedabagacad
     LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
     export PATH="$PATH:/opt/local/bin:/opt/local/sbin:/usr/local/sbin"
     export LANG='en_US.UTF-8'
-    export BYOBU_PREFIX=$(brew --prefix)
-    # alias supervisorctl="supervisorctl -c $HOME/.supervisord/supervisord.conf"
     bindkey '^P' history-search-backward
     bindkey '^N' history-search-forward
 fi
@@ -148,20 +141,17 @@ fi
 # export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 
-# ServicesBox
-# [[ -s "$HOME/Documents/ServicesBox/activate" ]] && . "$HOME/Documents/ServicesBox/activate"
-
-alias lx="$HOME/Dropbox/ratazzi/utils/xunlei-lixian/lixian_cli.py"
 alias secret.gen="head -2 /dev/urandom | sha1sum | base64"
-alias bm='byobu-tmux'
 alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
+alias emacs='emacs -nw'
 
 [[ -d "/usr/local/mysql/bin" ]] && export PATH="/usr/local/mysql/bin:$PATH"
-#
+
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-# vim: set fdm=marker:
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# added by travis gem
-[ -f /Users/ratazzi/.travis/travis.sh ] && source /Users/ratazzi/.travis/travis.sh
+source ~/.autoenv/activate.sh
+
+# vim: set fdm=marker:
