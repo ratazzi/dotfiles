@@ -1,61 +1,83 @@
 URxvt.termName: rxvt-unicode-256color
-URxvt.preeditType:Root
+URxvt.preeditType: Root
 ! Input method
-! URxvt.inputMethod:ibus
+Urxvt.inLocale: zh_CN.UTF-8
+URxvt.inputMethod: fcitx
+URxvt.loginShell: true
+URxvt*visualBell: false
 
-URxvt.depth:32
+URxvt.depth: 32
+! URxvt.transparent: true
+! URxvt.shading: 20
+! URxvt.inheritPixmap: true
 
-! URxvt.urlLauncher:firefox
-URxvt.matcher.button:1
-Urxvt.perl-ext-common:matcher
+URxvt.scrollBar: true
+URxvt.scrollBar_right: true
+URxvt.scrollBar_floating: false
+URxvt.scrollstyle: plain
 
-URxvt.scrollBar:True
-URxvt.scrollBar_right:True
-URxvt.scrollBar_floating:False
-URxvt.scrollstyle:plain
+URxvt.mouseWheelScrollPage: true
+URxvt.scrollTtyOutput: false
+URxvt.scrollWithBuffer: true
+URxvt.scrollTtyKeypress: true
 
-URxvt.mouseWheelScrollPage:True
-URxvt.scrollTtyOutput:False
-URxvt.scrollWithBuffer:True
-URxvt.scrollTtyKeypress:True
+URxvt.cursorBlink: true
+URxvt.saveLines: 10000
 
-URxvt.cursorBlink:True
-URxvt.saveLines:3000
-
-URxvt.borderLess:False
+URxvt.borderLess: false
 
 ! Fonts
-Xft.dpi:96
-Xft.autohint:  0
+Xft.dpi: 96
+Xft.autohint: 0
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintfull
-Xft.hinting:   1
+Xft.hinting: 1
 Xft.antialias: 1
-Xft.dpi:       96
-Xft.rgba:      rgb
-urxvt.letterSpace: -1
-! URxvt.font:xft:Ubuntu Mono:size=13:antialias=true
-! URxvt.boldfont:xft:WenQuanYi Micro Hei Mono:size=12:style=Regular:antialias=true
+Xft.dpi: 96
+Xft.rgba: rgb
+Urxvt.letterSpace: -1
+URxvt.*font: xft:Ubuntu Mono:size=13:antialias=true, xft:WenQuanYi Micro Hei Mono:size=14:antialias=true
 
-! Plugins
-! urxvt.perl-ext-common : matcher,clipboard
+! https://github.com/hukl/Smyck-Color-Scheme/pull/18
+URxvt.foreground: #FFFFFF
+URxvt.background: rgba:2400/2400/2400/dcdc
 
-! Color theme
-URxvt.background: #131313
-URxvt.foreground: #F2F2F2
-URxvt.color0: #2E3436
-URxvt.color8: #555753
-URxvt.color1: #CC0000
-URxvt.color9: #EF2929
-URxvt.color2: #4E9A06
-URxvt.color10: #8AE234
-URxvt.color3: #C4A000
-URxvt.color11: #FCE94F
-URxvt.color4: #3465A4
-URxvt.color12: #729FCF
-URxvt.color5: #75507B
-URxvt.color13: #AD7FA8
-URxvt.color6: #06989A
-URxvt.color14: #34E2E2
-URxvt.color7: #D3D7CF
-URxvt.color15: #EEEEEC
+URxvt.color0: #000000
+URxvt.color1: #C75646
+URxvt.color2: #8EB33B
+URxvt.color3: #D0B03C
+URxvt.color4: #72B3CC
+URxvt.color5: #C8A0D1
+URxvt.color6: #218693
+URxvt.color7: #B0B0B0
+URxvt.color8: #5D5D5D
+URxvt.color9: #E09690
+URxvt.color10: #CDEE69
+URxvt.color11: #FFE377
+URxvt.color12: #9CD9F0
+URxvt.color13: #FBB1F9
+URxvt.color14: #77DFD8
+URxvt.color15: #F7F7F7
+
+! https://github.com/muennich/urxvt-perls
+! http://funloop.org/post/2015-06-25-urxvt-plugins.html
+URxvt.perl-ext-common: matcher,clipboard,keyboard-select,url-select
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+
+URxvt.keysym.Mod4-c: perl:clipboard:copy
+URxvt.keysym.Mod4-v: perl:clipboard:paste
+
+URxvt.clipboard.autocopy: true
+URxvt.clipboard.copycmd: xclip -i -selection clipboard
+URxvt.clipboard.pastecmd: xclip -o -selection clipboard
+
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.autocopy: true
+URxvt.url-select.underline: true
+
+! URxvt.urlLauncher: firefox
+URxvt.matcher.button: 1

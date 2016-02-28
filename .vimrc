@@ -1,9 +1,11 @@
 " Author ratazzi <ratazzi.potts@gmail.com>
 " URL http://www.ratazzi.org/
 
-set nocompatible
+if has('nvim')
+    set runtimepath+=~/.vim
+endif
+
 set shell=bash
-set ttyfast
 set noerrorbells
 set visualbell
 " modeline
@@ -14,7 +16,12 @@ set title
 " set synmaxcol=128
 " set ttyscroll=3
 " set lazyredraw " to avoid scrolling problems
-set ttyfast ttymouse=xterm2 lazyredraw ttyscroll=3
+if !has('nvim')
+    set nocompatible
+    set ttyfast
+    set ttyfast ttymouse=xterm2 lazyredraw ttyscroll=3
+    set t_ti= t_te=
+endif
 
 " This loads all the plugins specified in ~/.vim/vundles.vim
 " Use Vundle plugin to manage all other plugins
@@ -25,10 +32,13 @@ endif
 " shortcut
 let mapleader=","
 map <leader>m <C-W>_
-map <leader>g :CommandT<CR>
-map <leader>b :CommandTBuffer<CR>
 map <leader>t :tj<CR>
-" inoremap jj <ESC>
+map <leader>p :FZF<CR>
+
+map <Left> <Nop>
+map <Right> <Nop>
+map <Up> <Nop>
+map <Down> <Nop>
 
 " Location bindings
 noremap <leader>e :lopen<CR>
@@ -39,6 +49,7 @@ noremap <leader>[ :lprev<CR>
 nnoremap <F2> :set invpaste paste?<CR>
 imap <F2> <C-O>:set invpaste paste?<CR>
 set pastetoggle=<F2>
+au InsertLeave * set nopaste
 
 " indent and tabstop
 set autoindent
@@ -79,7 +90,7 @@ set dir=$HOME/.tmp//,$HOME/tmp//
 set wildignore+=.DS_Store,*.sw?,.git,.svn,.hg
 set wildignore+=*.pyc,*.egg,*.egg-info
 set tags+=./tags,tags,$HOME/.tmp/tags,~/.vimtags
-set ignorecase smartcase
+" set ignorecase smartcase
 
 " Display tabs and trailing spaces visually
 set list listchars=tab:\ \ ,trail:·
@@ -100,7 +111,8 @@ endif
 " hide toolbar, menu {{{
 if has("gui")
     set guioptions-=T
-    set transparency=5
+    " set transparency=5
+    set guicursor+=n-v-c:blinkon0
 endif
 " }}}
 
@@ -124,7 +136,7 @@ endif
 if has('gui_running')
     " set cursorline
     silent! colorscheme smyck
-elseif &t_Co > 255 
+elseif &t_Co > 255
     " xterm-256color
     silent! colorscheme smyck
 else
@@ -141,7 +153,7 @@ function! StripWhitespace()
 	call setpos('.', save_cursor)
 	call setreg('/', old_query)
 endfunction
-noremap <leader>ss :call StripWhitespace()<CR>
+noremap <leader><space> :call StripWhitespace()<CR>
 
 " autocmd {{{
 autocmd! BufWritePost .vimrc source $HOME/.vimrc
@@ -149,7 +161,7 @@ au BufNewFile,BufRead *.pac set syntax=pac
 au BufNewFile,BufRead *.yaml.sample,*.yml.sample :set ft=yaml
 au BufNewFile,BufRead *.yaml,*.yaml.sample,*.yml,*.yml.sample :setlocal shiftwidth=2 tabstop=2
 au BufNewFile,BufRead *.md,*.mkd,*.markdown set ai formatoptions=tcronqn2 comments=n:>
-au BufRead,BufNewFile *.css set ft=css syntax=css3 
+au BufRead,BufNewFile *.css set ft=css syntax=css3
 au BufNewFile,BufRead *.rb,*.erb,Rakefile,Podfile,*.html set shiftwidth=2 tabstop=2
 au BufNewFile,BufRead *.js,*.coffee set shiftwidth=2 tabstop=2
 au BufReadCmd *.ipa,*.apk,*.fla call zip#Browse(expand("<amatch>"))
@@ -173,7 +185,7 @@ autocmd BufReadPost *
 " When editing a file, always jump to the last known cursor position.
 " And open enough folds to make the cursor is not folded
 " Don't do it when the position is invalid or when inside an event handler
-" (happens when dropping a file on gvim). 
+" (happens when dropping a file on gvim).
 
 " fold settings {{{
 autocmd BufWinEnter *
@@ -221,6 +233,8 @@ if filereadable(expand('~/.vimrc.local'))
     source ~/.vimrc.local
 endif
 
-let g:NERDTreeWinPos = "right"
+if filereadable(expand('~/.fzf/plugin/fzf.vim'))
+    set runtimepath+=~/.fzf
+endif
 
 " vim: fdm=marker
