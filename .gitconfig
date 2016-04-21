@@ -7,7 +7,7 @@
 
 [core]
     editor = vim
-    quotepath = false
+	quotepath = false
     # gitproxy = /Users/ratazzi/.dotfiles/socks5proxywrapper for github.com
 	excludesfile = /Users/ratazzi/.gitignore_global
 
