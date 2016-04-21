@@ -16,7 +16,7 @@ URxvt.scrollBar_right: true
 URxvt.scrollBar_floating: false
 URxvt.scrollstyle: plain
 
-URxvt.mouseWheelScrollPage: true
+URxvt.mouseWheelScrollPage: false
 URxvt.scrollTtyOutput: false
 URxvt.scrollWithBuffer: true
 URxvt.scrollTtyKeypress: true
@@ -35,8 +35,10 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.dpi: 96
 Xft.rgba: rgb
-Urxvt.letterSpace: -1
-URxvt.*font: xft:Ubuntu Mono:size=13:antialias=true, xft:WenQuanYi Micro Hei Mono:size=14:antialias=true
+URxvt.lineSpace: -1
+URxvt.letterSpace: -1
+! URxvt.*font: xft:Ubuntu Mono:size=13:antialias=true, xft:WenQuanYi Micro Hei Mono:size=14:antialias=true
+URxvt.*font: xft:PT Mono:size=12:antialias=true, xft:WenQuanYi Micro Hei Mono:size=14:antialias=true
 
 ! https://github.com/hukl/Smyck-Color-Scheme/pull/18
 URxvt.foreground: #FFFFFF
