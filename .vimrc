@@ -3,15 +3,18 @@
 
 if has('nvim')
     set runtimepath+=~/.vim
+    let g:python3_host_prog = expand('~/.neovim/bin/python3')
 endif
 
 set shell=bash
 set noerrorbells
-set visualbell
+set novisualbell
 " modeline
 set modelines=2
 set laststatus=2
 set title
+set titleold=  " Don't set the title to 'Thanks for flying Vim' when exiting
+" set notitle
 
 " set synmaxcol=128
 " set ttyscroll=3
@@ -33,7 +36,6 @@ endif
 let mapleader=","
 map <leader>m <C-W>_
 map <leader>t :tj<CR>
-map <leader>p :FZF<CR>
 
 map <Left> <Nop>
 map <Right> <Nop>
@@ -83,7 +85,8 @@ set fileencodings=utf-8,gb2312,gbk,gb18030,cp936
 set fileencoding=utf-8
 set enc=utf-8 nobomb
 " set fileformat=unix
-set fileformats+=dos
+" set fileformats+=dos
+set fileformats=unix,dos,mac encoding=utf-8
 set dictionary+=/usr/share/dict/words
 " swapfile dirs
 set dir=$HOME/.tmp//,$HOME/tmp//
@@ -119,11 +122,12 @@ endif
 " fonts {{{
 if has('mac')
     set t_Co=256
-    " set guifont=Monaco:h14
-    set guifont=PT\ Mono:h14
+    set guifont=Monaco:h14
+    " set guifont=PT\ Mono:h14
+    set guifont=Operator\ Mono\ Book:h16
     " set guifont=Monoid:h12
 else
-    set guifont=Ubuntu\ Mono\ 13
+    set guifont=PT\ Mono\ 12
     set guifontwide=WenQuanYi\ Micro\ Hei\ Mono\ 12
     if has('gui_running')
         set lines=35
@@ -145,6 +149,11 @@ else
 endif
 " }}}
 
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
+
 " Strip trailing whitespace (,ss)
 function! StripWhitespace()
 	let save_cursor = getpos(".")
@@ -163,8 +172,8 @@ au BufNewFile,BufRead *.yaml,*.yaml.sample,*.yml,*.yml.sample :setlocal shiftwid
 au BufNewFile,BufRead *.md,*.mkd,*.markdown set ai formatoptions=tcronqn2 comments=n:>
 au BufRead,BufNewFile *.css set ft=css syntax=css3
 au BufNewFile,BufRead *.rb,*.erb,Rakefile,Podfile,*.html set shiftwidth=2 tabstop=2
-au BufNewFile,BufRead *.js,*.coffee set shiftwidth=2 tabstop=2
-au BufReadCmd *.ipa,*.apk,*.fla call zip#Browse(expand("<amatch>"))
+au BufNewFile,BufRead *.js,*.vue,*.lua,*.sls set shiftwidth=2 tabstop=2
+au BufReadCmd *.ipa,*.apk,*.fla,*.whl call zip#Browse(expand("<amatch>"))
 au BufNewFile,BufRead *.py setlocal textwidth=79 nosmartindent
 " autocmd BufWritePost *
 "       \ if filereadable('tags') |
