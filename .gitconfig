@@ -1,6 +1,7 @@
 [user]
 	name = ratazzi
-    email = ratazzi.potts@gmail.com
+	email = ratazzi.potts@gmail.com
+	signingkey = 1F7CD01704C1A706
 
 [github]
     user = ratazzi
@@ -30,6 +31,7 @@
     unstage = reset HEAD --
 [diff]
 	tool = vimdiff
+    compactionHeuristic = true
 [difftool]
 	prompt = No
 [push]
@@ -40,3 +42,9 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[commit]
+	template = /Users/ratazzi/.stCommitMsg
+	gpgsign = true
+[diff "lockb"]
+	textconv = bun
+	binary = true

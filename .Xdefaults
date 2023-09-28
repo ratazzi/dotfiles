@@ -37,8 +37,10 @@ Xft.dpi: 96
 Xft.rgba: rgb
 URxvt.lineSpace: -1
 URxvt.letterSpace: -1
-! URxvt.*font: xft:Ubuntu Mono:size=13:antialias=true, xft:WenQuanYi Micro Hei Mono:size=14:antialias=true
-URxvt.*font: xft:PT Mono:size=12:antialias=true, xft:WenQuanYi Micro Hei Mono:size=14:antialias=true
+URxvt.*font: xft:Ubuntu Mono:size=13:antialias=true, xft:WenQuanYi Micro Hei Mono:size=14:antialias=true
+! URxvt.*font: xft:PT Mono:size=12:antialias=true, xft:WenQuanYi Micro Hei Mono:size=14:antialias=true
+! URxvt.*font: xft:SF Mono:size=12:antialias=true, xft:WenQuanYi Micro Hei Mono:size=14:antialias=true
+! URxvt.*font: xft:Anonymous Pro:size=12:antialias=true, xft:WenQuanYi Micro Hei Mono:size=14:antialias=true
 
 ! https://github.com/hukl/Smyck-Color-Scheme/pull/18
 URxvt.foreground: #FFFFFF
@@ -63,8 +65,12 @@ URxvt.color15: #F7F7F7
 
 ! https://github.com/muennich/urxvt-perls
 ! http://funloop.org/post/2015-06-25-urxvt-plugins.html
-URxvt.perl-ext-common: matcher,clipboard,keyboard-select,url-select
+! https://github.com/simmel/urxvt-resize-font
+URxvt.perl-ext-common: matcher,clipboard,keyboard-select,url-select,fullscreen,resize-font
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.F11:       perl:fullscreen:switch
+URxvt.resize-font.smaller: C-Down
+URxvt.resize-font.bigger: C-Up
 
 URxvt.keysym.M-c: perl:clipboard:copy
 URxvt.keysym.M-v: perl:clipboard:paste
@@ -83,3 +89,6 @@ URxvt.url-select.underline: true
 
 ! URxvt.urlLauncher: firefox
 URxvt.matcher.button: 1
+
+! Slow performance when drawing glyphs
+URxvt*skipBuiltinGlyphs:    true

@@ -1,7 +1,1 @@
-[flake8]
-max-line-length = 79
-ignore=F401,E402,E501
-exclude = tests/*,*_pb2.py
-; max-complexity = 10
-
-; vi: set ft=dosini:
+/Users/ratazzi/.dotfiles/.config/flake8

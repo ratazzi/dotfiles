@@ -12,6 +12,8 @@ if [ ! -d "$DOTFILES" ]; then
     git clone --recursive git://github.com/ratazzi/dotfiles.git $DOTFILES
 fi
 
+git clone --depth=1 https://github.com/robbyrussell/oh-my-zsh.git $DOTFILES/.oh-my-zsh
+
 ln -s "$DOTFILES/.oh-my-zsh" "$HOME/.oh-my-zsh"
 ln -s "$DOTFILES/.zshrc" "$HOME/.zshrc"
 
@@ -24,15 +26,11 @@ ln -s "$DOTFILES/.gitconfig" "$HOME/.gitconfig"
 # python
 ln -s "$DOTFILES/.pystartup.py" "$HOME/.pystartup.py"
 
-# if [ ! -d "$DOTFILES/.vim/bundle/vundle" ]; then
-#     git clone git://github.com/gmarik/vundle.git .vim/bundle/vundle
-# fi
-
 # vim
 ln -s "$DOTFILES/.vim" "$HOME/.vim"
 ln -s "$DOTFILES/.vimrc" "$HOME/.vimrc"
 ln -s "$DOTFILES/.vimrc" "$HOME/.gvimrc"
-vim +BundleInstall +qall
+vim +PlugInstall +qall
 
 echo -e "\n\033[01;32mLet's rock.\033[00m\n"
 exit 0

@@ -3,7 +3,18 @@
 
 if has('nvim')
     set runtimepath+=~/.vim
-    let g:python3_host_prog = expand('~/.neovim/bin/python3')
+    let g:python3_host_prog = expand('/opt/homebrew/bin/python3')
+
+    " if has("termguicolors")
+    "     set termguicolors
+    " endif
+endif
+
+" Should at the top since it will affect bundles.vim (maybe?)
+if $TERM == "xterm-256color"
+    set t_Co=256
+elseif $TERM == "screen-256color"
+    set t_Co=256
 endif
 
 set shell=bash
@@ -15,6 +26,7 @@ set laststatus=2
 set title
 set titleold=  " Don't set the title to 'Thanks for flying Vim' when exiting
 " set notitle
+set clipboard=unnamed
 
 " set synmaxcol=128
 " set ttyscroll=3
@@ -24,12 +36,19 @@ if !has('nvim')
     set ttyfast
     set ttyfast ttymouse=xterm2 lazyredraw ttyscroll=3
     set t_ti= t_te=
+    if has("gui_macvim")
+        set macligatures
+    endif
 endif
 
 " This loads all the plugins specified in ~/.vim/vundles.vim
 " Use Vundle plugin to manage all other plugins
 if filereadable(expand("~/.vim/vundles.vim"))
     source ~/.vim/vundles.vim
+endif
+
+if has('nvim')
+    lua require("plugins").setup()
 endif
 
 " shortcut
@@ -81,7 +100,7 @@ set showmode
 set showcmd
 set nobackup
 set showmatch
-set fileencodings=utf-8,gb2312,gbk,gb18030,cp936
+set fileencodings=utf-8,gb2312,gbk,gb18030,cp936,cp932,iso-8859-1,latin1,euc-jp,sjis,default
 set fileencoding=utf-8
 set enc=utf-8 nobomb
 " set fileformat=unix
@@ -94,6 +113,7 @@ set wildignore+=.DS_Store,*.sw?,.git,.svn,.hg
 set wildignore+=*.pyc,*.egg,*.egg-info
 set tags+=./tags,tags,$HOME/.tmp/tags,~/.vimtags
 " set ignorecase smartcase
+" set iskeyword-=_
 
 " Display tabs and trailing spaces visually
 set list listchars=tab:\ \ ,trail:·
@@ -122,9 +142,9 @@ endif
 " fonts {{{
 if has('mac')
     set t_Co=256
-    set guifont=Monaco:h14
+    " set guifont=Monaco:h14
     " set guifont=PT\ Mono:h14
-    set guifont=Operator\ Mono\ Book:h16
+    set guifont=Cascadia\ Code:h13
     " set guifont=Monoid:h12
 else
     set guifont=PT\ Mono\ 12
@@ -138,8 +158,11 @@ endif
 
 " colorscheme {{{
 if has('gui_running')
-    " set cursorline
+    set cursorline
     silent! colorscheme smyck
+    " colorscheme onehalflight
+    " colorscheme one
+    " colorscheme nassau
 elseif &t_Co > 255
     " xterm-256color
     silent! colorscheme smyck
@@ -240,10 +263,6 @@ inoremap <C-S> <C-C>:update<CR>
 " vimrc local
 if filereadable(expand('~/.vimrc.local'))
     source ~/.vimrc.local
-endif
-
-if filereadable(expand('~/.fzf/plugin/fzf.vim'))
-    set runtimepath+=~/.fzf
 endif
 
 " vim: fdm=marker

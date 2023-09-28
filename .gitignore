@@ -12,3 +12,16 @@
 .config/fish/fishd.*
 .config/fish/functions
 .emacs.d/*
+.config/yarn
+.vim/plugged
+node_modules
+*.pyc
+.local/share
+.config/awesome
+.config/kitty
+.config/raycast/extensions
+.config/karabiner
+.config/weechat
+.oh-my-zsh
+tmux-powerline
+.weechat

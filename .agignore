@@ -1,0 +1,9 @@
+.git
+.virtualenv
+.runtime
+*.pyc
+*.so
+*_pb.py
+*_pb2.py
+tags
+framework
