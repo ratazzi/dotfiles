@@ -159,16 +159,17 @@ endif
 " colorscheme {{{
 if has('gui_running')
     set cursorline
-    silent! colorscheme smyck
+    silent! colorscheme wush
     " colorscheme onehalflight
     " colorscheme one
     " colorscheme nassau
 elseif &t_Co > 255
     " xterm-256color
-    silent! colorscheme smyck
+    " silent! colorscheme smyck
+    silent! colorscheme wush
 else
     " xterm-color
-    colorscheme default
+    colorscheme wush
 endif
 " }}}
 
@@ -235,7 +236,7 @@ set mouse=a
 set selection=exclusive
 set selectmode=mouse,key
 
-behave mswin
+" behave mswin
 set backspace=indent,eol,start whichwrap+=<,>,[,]
 
 vnoremap <BS> d

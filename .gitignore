@@ -25,3 +25,7 @@ node_modules
 .oh-my-zsh
 tmux-powerline
 .weechat
+credentials
+
+local_*.py
+local_*.rb

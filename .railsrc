@@ -1,2 +1,3 @@
 --database=postgresql #defaults my development database to MySQL instead of SQLite3 in config/database.yml
---skip-coffee
+--skip-thruster
+--skip-kamal
