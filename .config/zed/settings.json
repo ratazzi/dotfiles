@@ -1,0 +1,117 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "base_keymap": "Emacs",
+  "outline_panel": {
+    "dock": "left"
+  },
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+  "agent": {
+    "always_allow_tool_actions": true,
+    "default_profile": "ask",
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4"
+    }
+  },
+  // "theme": "macOS Classic Light",
+  "theme": "light-green",
+  "buffer_font_size": 13,
+  // "buffer_font_family": "Monaspace Neon",
+  "buffer_font_family": "Maple Mono NF CN",
+  "buffer_font_features": {
+    "cv01": true,
+    "cv61": true,
+    "cv62": true
+  },
+  // "buffer_font_style": "Light",
+  "vim_mode": true,
+  "tab_size": 2,
+  "load_direnv": "direct",
+  "indent_guides": {
+    "enabled": false,
+    "line_width": 1,
+    "active_line_width": 1,
+    "coloring": "fixed",
+    "background_coloring": "disabled"
+  },
+  // "format_on_save": "off",
+  "preferred_line_length": 120,
+  "current_line_highlight": "all",
+  "file_types": {
+    //     "C++": ["c"],
+    //     "TOML": ["MyLockFile"],
+    "Dockerfile": ["Dockerfile*"]
+  },
+  "jupyter": {
+    "kernel_selections": {
+      "python": "conda-env",
+      "typescript": "deno",
+      "javascript": "deno",
+      "r": "ark"
+    }
+  },
+  "languages": {
+    "Ruby": {
+      "format_on_save": "off",
+      "language_servers": ["!solargraph", "ruby-lsp", "!rubocop"]
+    },
+    "Python": {
+      "tab_size": 4,
+      "language_servers": ["ruff"],
+      "format_on_save": "off",
+      "indent_guides": {
+        "enabled": true
+      }
+    },
+    "JavaScript": {
+      "format_on_save": "off"
+    },
+    "TypeScript": {
+      "format_on_save": "off"
+    },
+    "HTML": {
+      "format_on_save": "off"
+    },
+    "Rust": {
+      "format_on_save": "off",
+      "formatter": "language_server",
+      "preferred_line_length": 120
+    },
+    "YAML": {
+      "format_on_save": "off"
+    },
+    "TSX": {
+      "format_on_save": "off"
+    },
+    "JSX": {
+      "format_on_save": "off"
+    },
+    "TOML": {
+      "format_on_save": "off"
+    },
+    "Lua": {
+      "format_on_save": "off"
+    },
+    "Java": {
+      "format_on_save": "off"
+    }
+  },
+  "lsp": {
+    "rust-analyzer": {
+      "initialization_options": {
+        "check": {
+          "command": "clippy"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+font-family = Cascadia Code
+# Contextual alternates
+font-feature = calt
+
+# Standard ligatures
+font-feature = liga
+
+# Alternate not equal
+font-feature = ss02
+
+# Serbian locl forms (Italic only)
+font-feature = ss03
+
+# Slashed zero
+font-feature = ss19
+
+# Graphical control characters
+font-feature = ss20

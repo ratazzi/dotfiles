@@ -1,0 +1,6 @@
+#!/bin/bash
+
+dotenv_if_exists
+source_env_if_exists $HOME/.envrc
+source_env_if_exists $HOME/.envrc.$(hostname)
+source_env_if_exists .envrc.local

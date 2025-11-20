@@ -1,0 +1,8 @@
+[settings]
+idiomatic_version_file_enable_tools = ["ruby"]
+experimental = true
+
+[tools]
+python = "3.14.0"
+ruby = "3.4.5"
+uv = "latest"

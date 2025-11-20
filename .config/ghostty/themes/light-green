@@ -1,0 +1,30 @@
+# Light Green theme for Ghostty
+# Based on wush theme with soft green background
+
+# Basic colors
+background = f2f8f2
+foreground = 1a2e1a
+cursor-color = 2a3d2a
+cursor-text = f2f8f2
+selection-background = d4e8d4
+selection-foreground = 1a2e1a
+
+# ANSI colors (0-7)
+palette = 0=#0d1a0d
+palette = 1=#c62828
+palette = 2=#2e7d32
+palette = 3=#e65100
+palette = 4=#0d47a1
+palette = 5=#6a1b9a
+palette = 6=#00695c
+palette = 7=#1a2e1a
+
+# Bright ANSI colors (8-15)
+palette = 8=#5a7a5a
+palette = 9=#d32f2f
+palette = 10=#43a047
+palette = 11=#ff6f00
+palette = 12=#1565c0
+palette = 13=#8e24aa
+palette = 14=#00897b
+palette = 15=#0a150a

@@ -1,0 +1,42 @@
+bold-is-bright = true
+font-size = 13
+
+window-colorspace = display-p3
+window-save-state = always
+macos-option-as-alt = true
+# cursor-style = block_hollow
+
+macos-icon = official
+
+window-width = 150
+window-height = 45
+# background-opacity = 0.8
+
+link-url = true
+
+auto-update = check
+# stable
+# auto-update-channel = tip
+auto-update-channel = stable
+
+# 4GB
+scrollback-limit = 4000000000
+
+# config-file = font_cascadia_code
+config-file = font_maple_mono
+theme = light-green
+
+quick-terminal-position = top
+quick-terminal-screen = macos-menu-bar
+quick-terminal-autohide = true
+keybind = global:opt+grave_accent=toggle_quick_terminal
+keybind = shift+enter=text:\n
+
+# cursor-style = underline
+# cursor-style-blink = true
+adjust-cursor-thickness = 50%
+adjust-cursor-height = 50%
+
+# custom-shader = shaders/ripple_rectangle_cursor.glsl
+custom-shader = shaders/sonic_boom_cursor.glsl
+custom-shader-animation = always
