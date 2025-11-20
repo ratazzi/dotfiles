@@ -1,9 +1,0 @@
---ignore-dir=.tox
---ignore-dir=.virtualenv
---ignore-dir=.virtualenv.gevent
---ignore-dir=.runtime
---ignore-dir=.vagrant
---ignore-dir=.sync
---ignore-file=is:tags
---ignore-file=match:-*min*js
---ignore-file=match:-*.log*
